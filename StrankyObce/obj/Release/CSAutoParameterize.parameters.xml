@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Připojovacá řetězec v souboru web.config použitý aplikací pro přístup k databázi." defaultValue="Server=tcp:kolarikmartin.database.windows.net,1433;Initial Catalog=Stranky;Persist Security Info=False;User ID=SMITHKOLARIK;Password=Polav1994;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\marty\\Desktop\\StrankyObce\\StrankyObce\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="StrankyEntities-Web.config Connection String" description="StrankyEntities Připojovacá řetězec v souboru web.config použitý aplikací pro přístup k databázi." defaultValue="metadata=res://*/DB_Clanky.csdl|res://*/DB_Clanky.ssdl|res://*/DB_Clanky.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=kolarikmartin.database.windows.net;initial catalog=Stranky;user id=smithkolarik;password=Polav1994;multipleactiveresultsets=True;application name=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\marty\\Desktop\\StrankyObce\\StrankyObce\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='StrankyEntities']/@connectionString" />
+  </parameter>
+</parameters>

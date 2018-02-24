@@ -1,0 +1,44 @@
+﻿@using DataAcces
+@model List<DataAcces.Clanky1>
+
+@section main{
+    <div class="background">
+        <h1>Aktuality</h1>
+    </div>
+}
+@if (Request.IsAuthenticated) { 
+@section adminMenu{
+
+    <a href="@Url.Action("Index","Home")" class="list-group-item active">Aktuality</a>
+    <a href="@Url.Action("Pridat","Clanky")" class="list-group-item">Přidat článek</a>
+    <a href="@Url.Action("Seznam","Clanky")" class="list-group-item">Seznam článků</a>
+
+}
+}
+
+
+
+<div class="container-clanky">
+    @foreach (Clanky1 cl in Model)
+    {
+
+        <div class="items">
+            <h2>@cl.Nazev</h2>
+            @if (cl.Text.Count() > 350)
+            {
+                cl.Text = cl.Text.Substring(0, 350);
+                cl.Text = cl.Text.Trim();
+                if (cl.Text.Contains(" "))
+                {
+                    cl.Text = cl.Text.Remove(cl.Text.LastIndexOf(" "));
+                }
+
+
+            }
+
+            <p>@Html.Raw(cl.Text) </p>
+            <a class="btn btn-default" id="detail_cl" href="@Url.Action("Detail","Clanky",new {id=cl.Id })" role="button">Číst dále &raquo;</a>
+        </div><!--/.col-xs-6.col-lg-4-->
+
+    }
+</div>

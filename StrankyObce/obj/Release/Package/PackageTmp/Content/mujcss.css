@@ -1,0 +1,31 @@
+﻿
+.container-clanky {
+    display: inline-flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+}
+
+    .container-clanky .items {
+        padding: 5px 10px 35px 5px;
+        max-width: 25em;
+        margin: 10px 5px 0 15px;
+        /*   background-color:rgb(237, 230, 191);
+        border-radius:5%;*/
+    }
+
+div[id="background"] {
+    background: url(http://www.hrebec.cz/data/headerfooter/header_images/slideshow1.jpg);
+    height: 20em;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+footer {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    bottom: 0;
+}
+

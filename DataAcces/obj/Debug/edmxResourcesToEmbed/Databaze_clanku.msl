@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBclankyModelStoreContainer" CdmEntityContainer="ClankyEntities">
+    <EntitySetMapping Name="Clanky1">
+      <EntityTypeMapping TypeName="DBclankyModel.Clanky1">
+        <MappingFragment StoreEntitySet="Clanky1">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Autor" ColumnName="Autor" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Datum" ColumnName="Datum" />
+          <ScalarProperty Name="Nazev" ColumnName="Nazev" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

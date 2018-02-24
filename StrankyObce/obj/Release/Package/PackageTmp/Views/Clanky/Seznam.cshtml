@@ -1,0 +1,104 @@
+﻿@using DataAcces
+
+@model List<Clanky1>
+
+@section main{
+
+    <h1>Přehled článku</h1>
+}
+@if (Request.IsAuthenticated)
+{
+@section adminMenu{
+    <a href="@Url.Action("Seznam", "Clanky")" class="list-group-item active">Seznam článků</a>
+    <a href="@Url.Action("Pridat", "Clanky")" class="list-group-item">Přidat článek</a>
+    <a href="@Url.Action("Index", "Home")" class="list-group-item">Aktuality</a>
+
+}}
+
+<!-- Modal+ iknoka koše -->
+
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Odstranit článek</h4>
+            </div>
+            <div class="modal-body">
+                Po odstranění tohoto článku už jej nebude možné vratit zpět
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Zrušit</button>
+                <a type="button" class="btn btn-primary" id="deletebtn" href="">Smazat</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nazev</th>
+            <th>Datum</th>
+            <th>Autor</th>
+            <th>Upravit</th>
+            <th>Smazat</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Clanky1 cl in Model)
+            {
+            <tr>
+                <td>@cl.Id</td>
+                <td>@Html.ActionLink(cl.Nazev, "Detail", "Clanky", new { id = cl.Id }, new { })</td>
+                <td>@cl.Datum</td>
+                <td>@cl.Autor</td>
+                <!-- Ikonka pera -->
+                <td><a href="@Url.Action("Upravit","Clanky",new {id=cl.Id })" id="no_color"><span class="glyphicon glyphicon-pencil btn btn-link" aria-hidden="true"></span></a></td>
+
+                <td>
+                    <span class="glyphicon glyphicon-trash btn btn-link trash_button" data-id=@cl.Id aria-hidden="true" data-toggle="modal" data-target="#myModal1"> </span>
+                </td>
+
+
+
+
+            </tr>
+
+        }
+    </tbody>
+
+
+
+</table>
+
+
+
+<script type="text/javascript">
+        $('.trash_button').click(function () {
+            //alert('called');
+            // we want to copy the 'id' from the button to the modal
+            var href = $(this).data('target');
+            var id = $(this).data('id');
+
+            // since the value of href is what we want, so I just did it like so
+            //alert(href);
+            // used it as the selector for the modal
+            $(href).data('id', id);
+        });
+
+        $('#deletebtn').click(function () {
+            // now we grab it from the modal
+            var id = $('#myModal1').data('id');
+            $(this).attr("href","Smazat/"+id);
+        });
+
+
+
+</script>
+
+
+
