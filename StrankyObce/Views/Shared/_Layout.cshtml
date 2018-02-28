@@ -44,7 +44,7 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="@Url.Action("index","Home")">Druha</a></li>
+                    <li><a href="@Url.Action("index","Home")">Fotografie</a></li>
 
                     <li id="fat-menu" class="dropdown, clearfix,navbar-right">
                         <a href="#" class="dropdown-toggle" id="drop3" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> Služby a firmy <span class="caret"></span> </a>
@@ -89,7 +89,7 @@
         }
         <!-- /notifikace -->
 
-
+     
         <div class="row row-offcanvas row-offcanvas-right">
 
             <div class="col-xs-12 col-sm-9">
@@ -119,18 +119,17 @@
             }
             <!-- Html.Partial("_EditMenuPartial")-->
         </div>
-        <hr>
-
-        <footer>
-
-            <p class="alert-danger">Tato stránka je vytvořena jako studenský projekt</p>
-            <p>Autor: Martin Kolařík</p>
-            @Html.ActionLink("Přihlásit se", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
-
-
-        </footer>
-
+        <div class="push"></div>
     </div><!--/.container-->
+    <footer id="center">
+        <p class="alert-danger">Tato stránka je vytvořena jako studenský projekt</p>
+        <p>Autor: Martin Kolařík</p>
+        @Html.ActionLink("Přihlásit se", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+
+
+    </footer>
+
+
 
 </body>
 </html>

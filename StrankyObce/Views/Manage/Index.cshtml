@@ -2,8 +2,10 @@
 @{
     ViewBag.Title = "Spravovat";
 }
+@section main{
+    <h1>@ViewBag.Title</h1>
+    }
 
-<h2>@ViewBag.Title.</h2>
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
@@ -23,10 +25,14 @@
             }
             ]
         </dd>
-        <dt>Externí přihlášení:</dt>
+     @*   <dt>Externí přihlášení:</dt>
+    <dd>
+        @Model.Logins.Count [
+        @Html.ActionLink("Spravovat", "ManageLogins") ]
+    </dd>*@
+            <dt>Registrovat uživatele</dt>
         <dd>
-            @Model.Logins.Count [
-            @Html.ActionLink("Spravovat", "ManageLogins") ]
+            @Html.ActionLink("Registrovat nového uživatele", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
         </dd>
         @*
             Telefonní číslo je možné použít jako druhou úroveň při dvojúrovňovém ověřování.
@@ -56,12 +62,9 @@
                 }
             </dd>
         *@
-        <dt>Dvoufaktorové ověřování:</dt>
+    
         <dd>
-            <p>
-                Nejsou nakonfigurovaní žádní poskytovatelé dvojúrovňového ověřování. Podrobnosti o nastavení podpory dvojúrovňového ověřování v této aplikaci ASP.NET
-                najdete v <a href="https://go.microsoft.com/fwlink/?LinkId=403804">tomto článku</a>.
-            </p>
+        
             @*@if (Model.TwoFactor)
                 {
                     using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
