@@ -1,10 +1,13 @@
 ﻿@using StrankyObce.Models
 @model LoginViewModel
 @{
-    ViewBag.Title = "Přihlásit";
+    ViewBag.Title = "Přihlásit se";
 }
 
-<h2>@ViewBag.Title.</h2>
+@section main{
+    <h1>@ViewBag.Title</h1>
+    }
+
 <div class="row">
     <div class="col-md-8">
         <section id="loginForm">
@@ -41,13 +44,13 @@
                         <input type="submit" value="Přihlásit" class="btn btn-default" />
                     </div>
                 </div>
-                <p>
-                    @Html.ActionLink("Zaregistrujte se jako nový uživatel", "Register")
-                </p>
-                @* Povolit, jakmile je povoleno potvrzení účtu pro funkci resetování hesla
-                    <p>
-                        @Html.ActionLink("Zapomněli jste heslo?", "ForgotPassword")
-                    </p>*@
+               @* <p>
+        @Html.ActionLink("Zaregistrujte se jako nový uživatel", "Register")
+    </p>
+     Povolit, jakmile je povoleno potvrzení účtu pro funkci resetování hesla
+            *@<p>
+            @Html.ActionLink("Zapomněli jste heslo?", "ForgotPassword")
+        </p>
             }
         </section>
     </div>
