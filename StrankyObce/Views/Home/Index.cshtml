@@ -1,5 +1,6 @@
-﻿@using DataAcces
-@model List<DataAcces.Clanky1>
+﻿@using DataAcces.Models
+
+@model List<DataAcces.Models.Clanky>
 
 @section main{
     <div class="background">
@@ -17,9 +18,8 @@
 }
 
 
-
 <div class="container-clanky">
-    @foreach (Clanky1 cl in Model)
+    @foreach (DataAcces.Models.Clanky cl in Model)
     {
 
         <div class="items">
@@ -37,7 +37,7 @@
             }
 
             <p>@Html.Raw(cl.Text) </p>
-            <a class="btn btn-default" id="detail_cl" href="@Url.Action("Detail","Clanky",new {id=cl.Id })" role="button">Číst dále &raquo;</a>
+            <a class="btn btn-default" id="detail_cl" href="@Url.Action("Detail","Clanky",new {id=cl.ID })" role="button">Číst dále &raquo;</a>
         </div><!--/.col-xs-6.col-lg-4-->
 
     }

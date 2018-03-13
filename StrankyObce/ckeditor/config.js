@@ -5,7 +5,9 @@
 
 CKEDITOR.editorConfig = function (config) {
     config.height = '45em';
-    config.language = "cs";
+    config.defaultLanguage = 'CS';
+    config.entities_greek = false;
+    config.entities_latin = false;
 	// Define changes to default configuration here. For example:
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';

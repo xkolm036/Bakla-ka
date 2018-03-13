@@ -139,7 +139,7 @@ namespace StrankyObce.Controllers
 
         //
         // GET: /Account/Register
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public ActionResult Register()
         {
             return View();

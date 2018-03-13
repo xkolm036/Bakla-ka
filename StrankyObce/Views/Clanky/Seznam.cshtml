@@ -1,6 +1,6 @@
-﻿@using DataAcces
+﻿@using DataAcces.Models
 
-@model List<Clanky1>
+@model List<Clanky>
 
 @section main{
 
@@ -49,18 +49,17 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (Clanky1 cl in Model)
+        @foreach (Clanky cl in Model)
             {
             <tr>
-                <td>@cl.Id</td>
-                <td>@Html.ActionLink(cl.Nazev, "Detail", "Clanky", new { id = cl.Id }, new { })</td>
-                <td>@cl.Datum</td>
-                <td>@cl.Autor</td>
+                <td>@cl.ID</td>
+                <td>@Html.ActionLink(cl.Nazev, "Detail", "Clanky", new { id = cl.ID }, new { })</td>
+                <td>@cl.Datum_Vytvoreni</td>
                 <!-- Ikonka pera -->
-                <td><a href="@Url.Action("Upravit","Clanky",new {id=cl.Id })" id="no_color"><span class="glyphicon glyphicon-pencil btn btn-link" aria-hidden="true"></span></a></td>
+                <td><a href="@Url.Action("Upravit","Clanky",new {id=cl.ID })" id="no_color"><span class="glyphicon glyphicon-pencil btn btn-link" aria-hidden="true"></span></a></td>
 
                 <td>
-                    <span class="glyphicon glyphicon-trash btn btn-link trash_button" data-id=@cl.Id aria-hidden="true" data-toggle="modal" data-target="#myModal1"> </span>
+                    <span class="glyphicon glyphicon-trash btn btn-link trash_button" data-id=@cl.ID aria-hidden="true" data-toggle="modal" data-target="#myModal1"> </span>
                 </td>
 
 

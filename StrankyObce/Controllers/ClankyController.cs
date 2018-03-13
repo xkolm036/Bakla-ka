@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using DataAcces;
+using DataAcces.Models;
 
 
 namespace StrankyObce.Controllers
@@ -12,7 +12,7 @@ namespace StrankyObce.Controllers
     {
         // GET: Clanky
     
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public ActionResult Pridat()
         {
             return View();
@@ -20,18 +20,18 @@ namespace StrankyObce.Controllers
         }
 
         [ValidateInput(false)]
-        public ActionResult Pridej(Clanky1 cl)
+        public ActionResult Pridej(Clanky cl)
         {
             //ViewBag.EmailTemp = Request.Form["Clanek"];
 
-            cl.Autor = "aa";
-            cl.Datum = System.DateTime.Today.ToString();
+        
+            cl.Datum_Vytvoreni = System.DateTime.Today;
             
 
             if (ModelState.IsValid)
             {
               cl.Text=Server.HtmlDecode(cl.Text);
-                Clanky1.pridejDoDB(cl);
+                Clanky.pridejDoDB(cl);
                 TempData["msg-succes"] = "Clanek byl uspěšně přidán";
                 return RedirectToAction("Index", "Home");
             }
@@ -41,33 +41,33 @@ namespace StrankyObce.Controllers
                 return View("Pridat", cl);
             }
         }
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public ActionResult Seznam()
         {
-            return View(Clanky1.VseZDB());
+            return View(Clanky.VseZDB());
         }
 
         public ActionResult Smazat(int id)
         {
-            Clanky1.odeberZDB(id);
+            Clanky.odeberZDB(id);
             TempData["msg-succes"] = "Článek byl úspěšně smazán";
             return RedirectToAction("Seznam", "Clanky");
         }
         
         public ActionResult Upravit(int id)
         {
-            Clanky1 cl = new Clanky1();
-            cl = Clanky1.vyberZDb(id);
+            Clanky cl = new Clanky();
+            cl = Clanky.vyberZDb(id);
             return View(cl);
 
         }
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Edit(Clanky1 cl, int id)
+        public ActionResult Edit(Clanky cl, int id)
         {
-            cl.Id = id;
-            Clanky1.update(cl);
+            cl.ID = id;
+            Clanky.update(cl);
             TempData["msg-succes"] = "Článek byl úspěšně upraven";
             return RedirectToAction("Seznam", "Clanky");
         }
@@ -82,10 +82,10 @@ namespace StrankyObce.Controllers
              foreach (Clanek c in dotaz)
                  cl = c;*/
 
-            Clanky1.vyberZDb(id);
+            Clanky.vyberZDb(id);
 
 
-            return View(Clanky1.vyberZDb(id));
+            return View(Clanky.vyberZDb(id));
         }
     }
 }

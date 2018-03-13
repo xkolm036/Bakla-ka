@@ -84,43 +84,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clanky1.cs">
-      <DependentUpon>DB_Clanky.tt</DependentUpon>
-    </Compile>
     <Compile Include="Class1.cs" />
-    <Compile Include="DB_Clanky.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DB_Clanky.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB_Clanky.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DB_Clanky.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB_Clanky.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DB_Clanky.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201802142118121_Identity.cs" />
     <Compile Include="Migrations\201802142118121_Identity.Designer.cs">
       <DependentUpon>201802142118121_Identity.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Clanky.cs">
+      <DependentUpon>ClankyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClankyModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClankyModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClankyModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClankyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClankyModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClankyModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Stranka.cs" />
     <Compile Include="ObecContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="DB_Clanky.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DB_Clanky.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="App.Config" />
-    <None Include="DB_Clanky.edmx.diagram">
-      <DependentUpon>DB_Clanky.edmx</DependentUpon>
+    <EntityDeploy Include="Models\ClankyModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ClankyModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\ClankyModel.edmx.diagram">
+      <DependentUpon>ClankyModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -133,18 +133,17 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DB_Clanky.Context.tt">
+    <Content Include="Models\ClankyModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DB_Clanky.edmx</DependentUpon>
-      <LastGenOutput>DB_Clanky.Context.cs</LastGenOutput>
+      <DependentUpon>ClankyModel.edmx</DependentUpon>
+      <LastGenOutput>ClankyModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DB_Clanky.tt">
+    <Content Include="Models\ClankyModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DB_Clanky.edmx</DependentUpon>
-      <LastGenOutput>DB_Clanky.cs</LastGenOutput>
+      <DependentUpon>ClankyModel.edmx</DependentUpon>
+      <LastGenOutput>ClankyModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

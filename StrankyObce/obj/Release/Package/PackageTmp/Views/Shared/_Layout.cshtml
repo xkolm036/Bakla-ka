@@ -57,7 +57,7 @@
                         </ul>
                     </li> <!-- /dropdown-->
                     <li><a href="@Url.Action("Page_Show","StaticPages",new {name="Kontakty"})">Kontakty</a></li>
-                    <li><a href="@Url.Action("index","Home")">Dokumenty</a></li>
+                    <li><a href="@Url.Action("UpFrom", "Dokumenty")">Dokumenty</a></li>
                 </ul>
                 @Html.Partial("_LoginPartial")
 
@@ -126,7 +126,7 @@
         <p class="alert-danger">Tato stránka je vytvořena jako studenský projekt</p>
         <p>Autor: Martin Kolařík</p>
         @Html.ActionLink("Přihlásit se", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
-
+       
 
     </footer>
 

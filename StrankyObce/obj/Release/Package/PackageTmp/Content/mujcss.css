@@ -43,3 +43,11 @@ html, body {
 footer {
     text-align: center;
 }
+
+#upload_link {
+    text-decoration: none;
+}
+
+#upload {
+    display: none
+}

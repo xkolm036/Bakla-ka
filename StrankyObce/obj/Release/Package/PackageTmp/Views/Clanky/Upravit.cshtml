@@ -1,6 +1,6 @@
-﻿@using DataAcces
+﻿@using DataAcces.Models
 
-@model Clanky1
+@model Clanky
 
 @{
     ViewBag.Title = "Index";
@@ -15,7 +15,7 @@
 {
 @section adminMenu{
     <a href="#" class="list-group-item active">Úprava článku</a>
-    @Html.ActionLink("Detail článku", "Detail", "Clanky", new { id = Model.Id }, new { @class = "list-group-item" })
+    @Html.ActionLink("Detail článku", "Detail", "Clanky", new { ID = Model.ID }, new { @class = "list-group-item" })
     @Html.ActionLink("Seznam článků", "Seznam", "Clanky", new { }, new { @class = "list-group-item" })
 }
 }
@@ -25,11 +25,11 @@
 }
 
 
-@Model.Datum;
+@Model.Datum_Vytvoreni;
 
 
 
-@using (Html.BeginForm("Edit", "Clanky", new { id = Model.Id }, FormMethod.Post))
+@using (Html.BeginForm("Edit", "Clanky", new { ID = Model.ID }, FormMethod.Post))
 {
 
     <div class="form-group">

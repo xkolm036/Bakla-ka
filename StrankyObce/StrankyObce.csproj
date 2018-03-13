@@ -193,6 +193,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClankyController.cs" />
+    <Compile Include="Controllers\DokumentyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StaticPagesController.cs" />
@@ -676,6 +677,7 @@
     <Content Include="ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
     <Content Include="ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="ckeditor\skins\moono-dark\readme.md" />
+    <Content Include="App.Config" />
     <None Include="Properties\PublishProfiles\Kolarik-BP - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\StrankyHrebec - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -736,9 +738,12 @@
     <Content Include="Views\Clanky\Upravit.cshtml" />
     <Content Include="Views\StaticPages\Page_Show.cshtml" />
     <Content Include="Views\StaticPages\Page_Edit.cshtml" />
+    <Content Include="Views\Dokumenty\tst.cshtml" />
+    <Content Include="Views\Dokumenty\UpFrom.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Dokumenty\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
