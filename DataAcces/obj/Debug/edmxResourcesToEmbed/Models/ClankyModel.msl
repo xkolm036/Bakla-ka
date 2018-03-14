@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="hrebec_dataModelStoreContainer" CdmEntityContainer="hrebec_dataEntities">
+    <EntitySetMapping Name="Clanky">
+      <EntityTypeMapping TypeName="hrebec_dataModel.Clanky">
+        <MappingFragment StoreEntitySet="Clanky">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nazev" ColumnName="Nazev" />
+          <ScalarProperty Name="Datum_Vytvoreni" ColumnName="Datum_Vytvoreni" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

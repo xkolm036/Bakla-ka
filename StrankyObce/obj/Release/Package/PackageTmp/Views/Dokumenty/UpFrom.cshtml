@@ -1,0 +1,56 @@
+﻿@section main{
+    <h1>Dokumenty</h1>
+}
+@if (Request.IsAuthenticated)
+{
+    @section adminMenu{
+        <a href="#" class="list-group-item active">Detail článku</a>
+        <a href="#" id="insert" class="list-group-item">Vložit soubor</a>
+
+        @using (Html.BeginForm("Upload", "Dokumenty", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+            <input type="file" name="file" />
+            <input type="submit" value="Nahrát" class="list-group-item" />
+        }
+        <a href="#" id="cancel" class="list-group-item">Zrušit výběr</a>
+
+    }
+}
+
+
+
+
+<!-- Button logic, hide /show button depend on selected file-->>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('input[type = "file"]').hide();
+        $('input[type = "submit"]').hide();
+        $("#cancel").hide();
+
+        $("#insert").click(function () {
+            if ($(this).html() == "Vložit soubor")
+                $('input[type = "file"]').click();
+            else
+                $('input[type = "submit"]').click();
+        });
+
+        $("#cancel").click(function () {
+            $("#insert").show();
+            $("#insert").html("Vložit soubor");
+            $("#cancel").hide();
+        });
+
+
+        $('input[type="file"]').change(function (e) {
+
+            var fileName = e.target.files[0].name;
+            if (fileName != "") {
+                $("#insert").html("Nahrát: " + fileName);
+                $("#cancel").show();
+            }
+        });
+    });
+
+
+
+</script>
