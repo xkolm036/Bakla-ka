@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DocumentsModel1StoreContainer" CdmEntityContainer="DocumentsEntities1">
+    <EntitySetMapping Name="Files">
+      <EntityTypeMapping TypeName="DocumentsModel1.Files">
+        <MappingFragment StoreEntitySet="Files">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Název" ColumnName="Název" />
+          <ScalarProperty Name="Cesta" ColumnName="Cesta" />
+          <ScalarProperty Name="Velikost" ColumnName="Velikost" />
+          <ScalarProperty Name="Pocet_Stazeni" ColumnName="Pocet_Stazeni" />
+          <ScalarProperty Name="Datum_Nahrani" ColumnName="Datum_Nahrani" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Image">
+      <EntityTypeMapping TypeName="DocumentsModel1.Image">
+        <MappingFragment StoreEntitySet="Image">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nazev" ColumnName="Nazev" />
+          <ScalarProperty Name="Umisteni" ColumnName="Umisteni" />
+          <ScalarProperty Name="Rok_nahrani" ColumnName="Rok_nahrani" />
+          <ScalarProperty Name="popisek" ColumnName="popisek" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -23,10 +24,11 @@ namespace StrankyObce.Controllers
         {
             try
             {
-                var model = Server.MapPath(@"~/Dokumenty/") + file.FileName;
+
+                string path = Server.MapPath(@"~/App_Data/Dokumenty/");
                 if (file.ContentLength > 0)
                 {
-                    file.SaveAs(model);
+                    file.SaveAs(Path.Combine(path, file.FileName));
                     TempData["msg-succes"] = file.FileName + " byl uspěšně nahrán";
 
                 }

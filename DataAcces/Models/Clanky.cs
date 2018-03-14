@@ -11,108 +11,12 @@ namespace DataAcces.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-
+    
     public partial class Clanky
     {
         public int ID { get; set; }
         public string Nazev { get; set; }
         public System.DateTime Datum_Vytvoreni { get; set; }
         public string Text { get; set; }
-
-        public static Clanky vyberZDb(int id)
-        {
-            Clanky clZdb = new Clanky();
-            clZdb = null;
-            using (hrebec_dataEntities context = new hrebec_dataEntities())
-            {
-                try
-                {
-                    clZdb = context.Clanky.FirstOrDefault(c => c.ID == id);
-                }
-                catch
-                {
-                    return null;
-                }
-            }
-            return clZdb;
-        }
-
-
-        public static void pridejDoDB(Clanky cl)
-        {
-            using (hrebec_dataEntities context = new hrebec_dataEntities())
-            {
-                context.Clanky.Add(cl);
-                context.SaveChanges();
-            }
-
-        }
-
-        public static int pocetVDB()
-        {
-            int pocet = 0;
-            using (hrebec_dataEntities context = new hrebec_dataEntities())
-            {
-                pocet = context.Clanky.Count();
-            }
-            return pocet;
-        }
-        public static void odeberZDB(int id)
-        {
-
-            using (hrebec_dataEntities context = new hrebec_dataEntities())
-            {
-                Clanky clZdb = new Clanky();
-                clZdb = context.Clanky.FirstOrDefault(c => c.ID == id);
-                context.Clanky.Remove(clZdb);
-                context.SaveChanges();
-            }
-
-        }
-        public static List<Clanky> VseZDB()
-        {
-            List<Clanky> database = new List<Clanky>();
-
-            using (hrebec_dataEntities context = new hrebec_dataEntities())
-            {
-
-
-                int i = 1, pocetnalzeu = 0;
-                int pocetDB = context.Clanky.Count();
-
-                Clanky clZdb = new Clanky();
-                while (pocetnalzeu != pocetDB)
-                {
-
-                    clZdb = context.Clanky.FirstOrDefault(c => c.ID == i);
-                    if (clZdb != null)
-                    {
-                        pocetnalzeu++;
-                        Clanky newclanek = new Clanky();
-                        database.Add(newclanek = clZdb); //fix
-                    }
-                    i++;
-                }
-
-            }
-            return database;
-        }
-
-        public static void update(Clanky cl)
-        {
-            using (hrebec_dataEntities context = new hrebec_dataEntities())
-            {
-                Clanky clZdb = new Clanky();
-                clZdb = context.Clanky.FirstOrDefault(c => c.ID == cl.ID);
-                clZdb.Nazev = cl.Nazev;
-                clZdb.Text = cl.Text;
-                context.SaveChanges();
-            }
-
-        }
-
-
-
     }
 }

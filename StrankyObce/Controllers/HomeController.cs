@@ -14,7 +14,11 @@ namespace StrankyObce.Controllers
             Clanky1 ww=new Clanky1 {Text="řřřřř",Autor="tst",Datum="1.1.2018",Nazev="pokus"};
             Clanky1.pridejDoDB(ww);*/
             ViewBag.Background = "background";
-            return View(Clanky.VseZDB());
+
+            List < Clanky >s= new List<Clanky>();
+            s = DBControl<Clanky>.FirtsN(0, true);
+
+            return View(DBControl<Clanky>.FirtsN(0,true));
         }
 
         public ActionResult Info()

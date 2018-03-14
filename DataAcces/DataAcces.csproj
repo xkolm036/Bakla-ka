@@ -91,36 +91,43 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Clanky.cs">
-      <DependentUpon>ClankyModel.tt</DependentUpon>
+      <DependentUpon>HrebecDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ClankyModel.Context.cs">
+    <Compile Include="Models\DBControl.cs" />
+    <Compile Include="Models\Files.cs">
+      <DependentUpon>HrebecDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HrebecDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ClankyModel.Context.tt</DependentUpon>
+      <DependentUpon>HrebecDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ClankyModel.cs">
+    <Compile Include="Models\HrebecDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ClankyModel.tt</DependentUpon>
+      <DependentUpon>HrebecDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ClankyModel.Designer.cs">
+    <Compile Include="Models\HrebecDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ClankyModel.edmx</DependentUpon>
+      <DependentUpon>HrebecDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Image.cs">
+      <DependentUpon>HrebecDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Stranka.cs" />
     <Compile Include="ObecContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
-    <EntityDeploy Include="Models\ClankyModel.edmx">
+    <EntityDeploy Include="Models\HrebecDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ClankyModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>HrebecDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\ClankyModel.edmx.diagram">
-      <DependentUpon>ClankyModel.edmx</DependentUpon>
+    <None Include="App.Config" />
+    <None Include="Models\HrebecDB.edmx.diagram">
+      <DependentUpon>HrebecDB.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -133,15 +140,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\ClankyModel.Context.tt">
+    <Content Include="Models\HrebecDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ClankyModel.edmx</DependentUpon>
-      <LastGenOutput>ClankyModel.Context.cs</LastGenOutput>
+      <DependentUpon>HrebecDB.edmx</DependentUpon>
+      <LastGenOutput>HrebecDB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\ClankyModel.tt">
+    <Content Include="Models\HrebecDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ClankyModel.edmx</DependentUpon>
-      <LastGenOutput>ClankyModel.cs</LastGenOutput>
+      <DependentUpon>HrebecDB.edmx</DependentUpon>
+      <LastGenOutput>HrebecDB.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
