@@ -12,11 +12,12 @@ namespace DataAcces.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Clanky
+    public partial class Image
     {
         public int ID { get; set; }
         public string Nazev { get; set; }
-        public System.DateTime Datum_Vytvoreni { get; set; }
-        public string Text { get; set; }
+        public string Umisteni { get; set; }
+        public string Rok_nahrani { get; set; }
+        public string popisek { get; set; }
     }
 }

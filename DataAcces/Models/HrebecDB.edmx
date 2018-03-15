@@ -14,8 +14,31 @@
           <Property Name="Datum_Vytvoreni" Type="date" Nullable="false" />
           <Property Name="Text" Type="ntext" />
         </EntityType>
+        <EntityType Name="Files">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Název" Type="nchar" MaxLength="200" Nullable="false" />
+          <Property Name="Cesta" Type="nchar" MaxLength="250" Nullable="false" />
+          <Property Name="Velikost" Type="float" Nullable="false" />
+          <Property Name="Pocet_Stazeni" Type="int" />
+          <Property Name="Datum_Nahrani" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazev" Type="nchar" MaxLength="200" Nullable="false" />
+          <Property Name="Umisteni" Type="nchar" MaxLength="350" Nullable="false" />
+          <Property Name="Rok_nahrani" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="popisek" Type="ntext" />
+        </EntityType>
         <EntityContainer Name="hrebec_dataModelStoreContainer">
           <EntitySet Name="Clanky" EntityType="Self.Clanky" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Files" EntityType="Self.Files" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -31,8 +54,31 @@
           <Property Name="Datum_Vytvoreni" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Files">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Název" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Cesta" Type="String" MaxLength="250" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Velikost" Type="Double" Nullable="false" />
+          <Property Name="Pocet_Stazeni" Type="Int32" />
+          <Property Name="Datum_Nahrani" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazev" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Umisteni" Type="String" MaxLength="350" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Rok_nahrani" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="popisek" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityContainer Name="hrebec_dataEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Clanky" EntityType="Self.Clanky" />
+          <EntitySet Name="Files" EntityType="Self.Files" />
+          <EntitySet Name="Image" EntityType="Self.Image" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -47,6 +93,29 @@
                 <ScalarProperty Name="Nazev" ColumnName="Nazev" />
                 <ScalarProperty Name="Datum_Vytvoreni" ColumnName="Datum_Vytvoreni" />
                 <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Files">
+            <EntityTypeMapping TypeName="hrebec_dataModel.Files">
+              <MappingFragment StoreEntitySet="Files">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Název" ColumnName="Název" />
+                <ScalarProperty Name="Cesta" ColumnName="Cesta" />
+                <ScalarProperty Name="Velikost" ColumnName="Velikost" />
+                <ScalarProperty Name="Pocet_Stazeni" ColumnName="Pocet_Stazeni" />
+                <ScalarProperty Name="Datum_Nahrani" ColumnName="Datum_Nahrani" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Image">
+            <EntityTypeMapping TypeName="hrebec_dataModel.Image">
+              <MappingFragment StoreEntitySet="Image">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nazev" ColumnName="Nazev" />
+                <ScalarProperty Name="Umisteni" ColumnName="Umisteni" />
+                <ScalarProperty Name="Rok_nahrani" ColumnName="Rok_nahrani" />
+                <ScalarProperty Name="popisek" ColumnName="popisek" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

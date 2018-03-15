@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DocumentsModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Files">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Název" Type="nchar" MaxLength="200" Nullable="false" />
+    <Property Name="Cesta" Type="nchar" MaxLength="250" Nullable="false" />
+    <Property Name="Velikost" Type="float" Nullable="false" />
+    <Property Name="Pocet_Stazeni" Type="int" />
+    <Property Name="Datum_Nahrani" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazev" Type="nchar" MaxLength="200" Nullable="false" />
+    <Property Name="Umisteni" Type="nchar" MaxLength="350" Nullable="false" />
+    <Property Name="Rok_nahrani" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="popisek" Type="ntext" />
+  </EntityType>
+  <EntityContainer Name="DocumentsModel1StoreContainer">
+    <EntitySet Name="Files" EntityType="Self.Files" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
