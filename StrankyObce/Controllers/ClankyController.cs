@@ -31,7 +31,7 @@ namespace StrankyObce.Controllers
             if (ModelState.IsValid)
             {
               cl.Text=Server.HtmlDecode(cl.Text);
-                DBControl<Clanky>.AddToDB(cl);
+                DBControl.AddToDB(cl);
                 TempData["msg-succes"] = "Clanek byl uspěšně přidán";
                 return RedirectToAction("Index", "Home");
             }
@@ -44,12 +44,14 @@ namespace StrankyObce.Controllers
         [Authorize]
         public ActionResult Seznam()
         {
-            return View(DBControl<Clanky>.FirtsN(0,true));
+            List<Clanky> cl = new List<Clanky>();
+            DBControl.FirtsN(0, ref cl, true);
+            return View(cl);
         }
 
         public ActionResult Smazat(int id)
         {
-          DBControl<Clanky>.Remove(id);
+          DBControl.RemoveCL(id);
             TempData["msg-succes"] = "Článek byl úspěšně smazán";
             return RedirectToAction("Seznam", "Clanky");
         }
@@ -57,7 +59,7 @@ namespace StrankyObce.Controllers
         public ActionResult Upravit(int id)
         {
             Clanky cl = new Clanky();
-            cl = DBControl<Clanky>.SelectByID(id);
+            cl = DBControl.SelectByID_Cl(id);
             return View(cl);
 
         }
@@ -67,7 +69,7 @@ namespace StrankyObce.Controllers
         public ActionResult Edit(Clanky cl, int id)
         {
             cl.ID = id;
-            DBControl<Clanky>.Update(cl);
+            DBControl.Update(cl);
             TempData["msg-succes"] = "Článek byl úspěšně upraven";
             return RedirectToAction("Seznam", "Clanky");
         }
@@ -83,7 +85,7 @@ namespace StrankyObce.Controllers
                  cl = c;*/
 
 
-            return View(DBControl<Clanky>.SelectByID(id));
+            return View(DBControl.SelectByID_Cl(id));
         }
     }
 }

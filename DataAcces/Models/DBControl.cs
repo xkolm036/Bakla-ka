@@ -4,153 +4,127 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAcces.Models
+namespace DataAcces.Models 
 {
-    public class DBControl<T> : hrebec_dataEntities
-         where T : class, new() 
-   
+    public class DBControl : hrebec_dataEntities
+
 
     {
         /// <summary>
-        /// Vrati polozku z DB na zaklade id
+        /// Vybere model na zaklade id
         /// </summary>
-        public static T SelectByID(int id)
+        public static Clanky SelectByID_Cl(int id)
         {
+            Clanky clZdb = new Clanky();
+            clZdb = null;
             using (hrebec_dataEntities context = new hrebec_dataEntities())
             {
-                try
-                {
-                    if (typeof(T) == typeof(Files))
-                    {
-                        Files FileZDb = new Files();
-                        FileZDb = context.Files.FirstOrDefault(c => c.ID == id);
-                        return (T)Convert.ChangeType(FileZDb, typeof(T));
-
-                    }
-                    if (typeof(T) == typeof(Image))
-                    {
-                        Image ImgZDb = new Image();
-                        ImgZDb = context.Image.FirstOrDefault(c => c.ID == id);
-                        return (T)Convert.ChangeType(ImgZDb, typeof(T));
-                    }
-
-                    if (typeof(T) == typeof(Clanky))
-                    {
-                        Clanky cl = new Clanky();
-                        cl = context.Clanky.FirstOrDefault(c => c.ID == id);
-                        return (T)Convert.ChangeType(cl, typeof(T));
-                    }
-                }
-                catch
-                {
-                    return null;
-                }
+                    clZdb = context.Clanky.FirstOrDefault(c => c.ID == id);
             }
-            return null;
+            return clZdb;
         }
 
+        public static Image SelectByID_Img(int id)
+        {
+            Image img = new Image();
+            img = null;
+            using (hrebec_dataEntities context = new hrebec_dataEntities())
+            {
+                img = context.Image.FirstOrDefault(c => c.ID == id);
+            }
+            return img;
+        }
+
+        public static Files SelectByID_File(int id)
+        {
+            Files f = new Files();
+            f = null;
+            using (hrebec_dataEntities context = new hrebec_dataEntities())
+            {
+                f = context.Files.FirstOrDefault(c => c.ID == id);
+            }
+            return f;
+        }
         /// <summary>
-        /// Přidání záznamu do DB
+        /// Prida model do DB
         /// </summary>
-        public static void AddToDB(T model)
+        public static void AddToDB(Clanky cl)
         {
             using (hrebec_dataEntities context = new hrebec_dataEntities())
             {
-                try
-                {
-                    if (typeof(T) == typeof(Files))
-                    {
-                        context.Files.Add((Files)Convert.ChangeType(model, typeof(T)));
-                        context.SaveChanges();
-
-
-                    }
-                    if (typeof(T) == typeof(Image))
-                    {
-                        Image ImgZDb = new Image();
-                        ImgZDb = context.Image.Add((Image)Convert.ChangeType(model, typeof(T)));
-
-                    }
-
-                    if (typeof(T) == typeof(Clanky))
-                    {
-                        Clanky cl = new Clanky();
-                        cl = context.Clanky.Add((Clanky)Convert.ChangeType(model, typeof(T)));
-
-                    }
-                }
-                catch
-                {
-
-                }
+                context.Clanky.Add(cl);
+                context.SaveChanges();
             }
-
         }
 
+        public static void AddToDB(Image Im)
+        {
+            using (hrebec_dataEntities context = new hrebec_dataEntities())
+            {
+                context.Image.Add(Im);
+                context.SaveChanges();
+            }
+        }
+
+        public static void AddToDB(Files File)
+        {
+            using (hrebec_dataEntities context = new hrebec_dataEntities())
+            {
+                context.Files.Add(File);
+                context.SaveChanges();
+            }
+        }
         /// <summary>
         /// Vybere prvních N z db nebo vsechny záznamy all=true
         /// </summary>
-        public static List<T> FirtsN(int N, bool all = false)
+        public static void FirtsN(int N, ref List<Clanky> ClFromDb, bool all = false)
         {
+            ClFromDb.Clear();
             using (hrebec_dataEntities context = new hrebec_dataEntities())
             {
-                try
+                if (all == true) N = context.Clanky.Count();
+                var data = context.Clanky.Take(N);
+
+                foreach (Clanky DBcl in data)
                 {
-                    if (typeof(T) == typeof(Files))
-                    {
-                        if (all == true)
-                            N = context.Files.Count();
-
-                        var zaznamy = context.Files.Take(N);
-                        List<Files> DB = new List<Files>();
-
-                        foreach (Files f in zaznamy)
-                        {
-                            DB.Add(f);
-                        }
-                        return (List<T>)Convert.ChangeType(DB, typeof(T));
-
-                    }
-                    if (typeof(T) == typeof(Image))
-                    {
-                        if (all == true)
-                            N = context.Image.Count();
-
-                        var zaznamy = context.Image.Take(N);
-                        List<Image> DB = new List<Image>();
-
-                        foreach (Image I in zaznamy)
-                        {
-                            DB.Add(I);
-                        }
-                        return (List<T>)Convert.ChangeType(DB, typeof(T));
-
-                    }
-
-                    if (typeof(T) == typeof(Clanky))
-                    {
-                        if (all == true)
-                            N = context.Clanky.Count();
-
-                        var zaznamy = context.Clanky.Take(N);
-                        List<Clanky> DB = new List<Clanky>();
-
-                        foreach (Clanky Cl in zaznamy)
-                        {
-                            DB.Add(Cl);
-                        }
-                        
-                        return (List<T>)Convert.ChangeType(DB, typeof(T));
-                    }
-                }
-                catch
-                {
-                    return null;
+                    ClFromDb.Add(DBcl);
                 }
             }
-            return null;
-        }
 
+        }
+    
+        public static void FirtsN(int N, ref List<Files> files, bool all = false)
+        {
+            files.Clear();
+            using (hrebec_dataEntities context = new hrebec_dataEntities())
+            {
+                if (all == true) N = context.Files.Count();
+                var data = context.Files.Take(N);
+
+                foreach (Files DBFile in data)
+                {
+                    files.Add(DBFile);
+                }
+            }
+        }
+      
+        public static void FirtsN(int N, ref List<Image> image, bool all = false)
+        {
+            image.Clear();
+            using (hrebec_dataEntities context = new hrebec_dataEntities())
+            {
+                if (all == true) N = context.Image.Count();
+                var data = context.Image.Take(N);
+
+                foreach (Image img in data)
+                {
+                    image.Add(img);
+                }
+            }
+        }
+        /// <summary>
+        /// Uprava zazamu databaze
+        /// </summary>
         public static void Update(Clanky cl)
         {
             using (hrebec_dataEntities context = new hrebec_dataEntities())
@@ -178,51 +152,43 @@ namespace DataAcces.Models
             using (hrebec_dataEntities context = new hrebec_dataEntities())
             {
                 Files fileZDb = new Files();
-                fileZDb = context.Files.FirstOrDefault(f => f.ID ==file.ID);
+                fileZDb = context.Files.FirstOrDefault(f => f.ID == file.ID);
                 fileZDb = file;
                 context.SaveChanges();
             }
         }
 
 
-        public static void Remove(int id)
+        public static void RemoveCL(int id)
         {
             using (hrebec_dataEntities context = new hrebec_dataEntities())
             {
-                try
-                {
-                    if (typeof(T) == typeof(Files))
-                    {
-                        Files FileZDb = new Files();
-                        FileZDb = context.Files.FirstOrDefault(c => c.ID == id);
-                        context.Files.Remove(FileZDb);
-                        context.SaveChanges();
-
-                    }
-                    if (typeof(T) == typeof(Image))
-                    {
-                        Image ImgZDb = new Image();
-                        ImgZDb = context.Image.FirstOrDefault(c => c.ID == id);
-                        context.Image.Remove(ImgZDb);
-                        context.SaveChanges();
-                    }
-
-                    if (typeof(T) == typeof(Clanky))
-                    {
-                        Clanky cl = new Clanky();
-                        cl = context.Clanky.FirstOrDefault(c => c.ID == id);
-                        context.Clanky.Remove(cl);
-                        context.SaveChanges();
-                    }
-                }
-                catch
-                {
-                
-                }
+                Clanky clZdb = new Clanky();
+                clZdb = context.Clanky.FirstOrDefault(c => c.ID == id);
+                context.Clanky.Remove(clZdb);
+                context.SaveChanges();
             }
-         
         }
 
-
+        public static void RemoveFile(int id)
+        {
+            using (hrebec_dataEntities context = new hrebec_dataEntities())
+            {
+                Files f = new Files();
+                f = context.Files.FirstOrDefault(c => c.ID == id);
+                context.Files.Remove(f);
+                context.SaveChanges();
+            }
+        }
+        public static void RemoveImage(int id)
+        {
+            using (hrebec_dataEntities context = new hrebec_dataEntities())
+            {
+                Image i = new Image();
+                i = context.Image.FirstOrDefault(c => c.ID == id);
+                context.Image.Remove(i);
+                context.SaveChanges();
+            }
+        }
     }
-}
+    }

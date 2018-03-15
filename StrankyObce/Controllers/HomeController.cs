@@ -15,11 +15,13 @@ namespace StrankyObce.Controllers
             Clanky1.pridejDoDB(ww);*/
             ViewBag.Background = "background";
 
-            List < Clanky >s= new List<Clanky>();
-            s = DBControl<Clanky>.FirtsN(0, true);
+            List<Clanky> cl = new List<Clanky>();
+            DBControl.FirtsN(0,ref cl, true);
 
-            return View(DBControl<Clanky>.FirtsN(0,true));
+            return View(cl);
         }
+
+
 
         public ActionResult Info()
         {
