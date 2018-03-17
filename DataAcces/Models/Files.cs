@@ -20,5 +20,6 @@ namespace DataAcces.Models
         public double Velikost { get; set; }
         public Nullable<int> Pocet_Stazeni { get; set; }
         public System.DateTime Datum_Nahrani { get; set; }
+        public string Kategorie { get; set; }
     }
 }

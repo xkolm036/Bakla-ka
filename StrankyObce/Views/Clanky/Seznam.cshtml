@@ -43,7 +43,7 @@
             <th>ID</th>
             <th>Nazev</th>
             <th>Datum</th>
-            <th>Autor</th>
+            
             <th>Upravit</th>
             <th>Smazat</th>
         </tr>
@@ -56,10 +56,10 @@
                 <td>@Html.ActionLink(cl.Nazev, "Detail", "Clanky", new { id = cl.ID }, new { })</td>
                 <td>@cl.Datum_Vytvoreni</td>
                 <!-- Ikonka pera -->
-                <td><a href="@Url.Action("Upravit","Clanky",new {id=cl.ID })" id="no_color"><span class="glyphicon glyphicon-pencil btn btn-link" aria-hidden="true"></span></a></td>
-
+                <td><a href="@Url.Action("Upravit","Clanky",new {id=cl.ID })" id="no_color"><span class="material-icons" aria-hidden="true">mode_edit</span></a></td>
+             
                 <td>
-                    <span class="glyphicon glyphicon-trash btn btn-link trash_button" data-id=@cl.ID aria-hidden="true" data-toggle="modal" data-target="#myModal1"> </span>
+                    <a href ="#" id="no_color" class="material-icons trash_button" data-id=@cl.ID aria-hidden="true" data-toggle="modal" data-target="#myModal1">delete</a>
                 </td>
 
 

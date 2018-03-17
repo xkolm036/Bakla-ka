@@ -12,11 +12,8 @@ namespace StrankyObce.Controllers
     public class DokumentyController : Controller
     {
         // GET: Dokumenty
-
-
-        public ActionResult UpFrom()
+        public ActionResult Index()
         {
-
             List<Files> down = new List<Files>();
             List<Files> date = new List<Files>();
 
@@ -38,6 +35,8 @@ namespace StrankyObce.Controllers
 
             return View();
         }
+
+   
 
         public ActionResult Upload(HttpPostedFileBase file)
         {
@@ -79,10 +78,7 @@ namespace StrankyObce.Controllers
 
             }
 
-
-
-
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Dokumenty");
         }
 
 
@@ -122,6 +118,22 @@ namespace StrankyObce.Controllers
 
                 return View(filesFromDB);
         }
+
+
+        public ActionResult delete(int id)
+        {
+            Files filesFromDB = new Files();
+            using (hrebec_dataEntities contex = new hrebec_dataEntities())
+            {
+
+                filesFromDB = contex.Files.FirstOrDefault(f => f.ID== id);
+                contex.Files.Remove(filesFromDB);
+                contex.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
+
 
     }
 }

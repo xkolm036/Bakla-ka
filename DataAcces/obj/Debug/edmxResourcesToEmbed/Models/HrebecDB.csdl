@@ -19,6 +19,7 @@
     <Property Name="Velikost" Type="Double" Nullable="false" />
     <Property Name="Pocet_Stazeni" Type="Int32" />
     <Property Name="Datum_Nahrani" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Kategorie" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
   </EntityType>
   <EntityType Name="Image">
     <Key>

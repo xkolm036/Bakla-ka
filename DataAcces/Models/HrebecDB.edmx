@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="hrebec_dataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="hrebec_dataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Clanky">
           <Key>
             <PropertyRef Name="ID" />
@@ -24,6 +24,7 @@
           <Property Name="Velikost" Type="float" Nullable="false" />
           <Property Name="Pocet_Stazeni" Type="int" />
           <Property Name="Datum_Nahrani" Type="date" Nullable="false" />
+          <Property Name="Kategorie" Type="nchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Image">
           <Key>
@@ -40,8 +41,7 @@
           <EntitySet Name="Files" EntityType="Self.Files" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="hrebec_dataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -64,6 +64,7 @@
           <Property Name="Velikost" Type="Double" Nullable="false" />
           <Property Name="Pocet_Stazeni" Type="Int32" />
           <Property Name="Datum_Nahrani" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Kategorie" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="Image">
           <Key>
@@ -99,6 +100,7 @@
           <EntitySetMapping Name="Files">
             <EntityTypeMapping TypeName="hrebec_dataModel.Files">
               <MappingFragment StoreEntitySet="Files">
+                <ScalarProperty Name="Kategorie" ColumnName="Kategorie" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Název" ColumnName="Název" />
                 <ScalarProperty Name="Cesta" ColumnName="Cesta" />

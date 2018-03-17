@@ -14,6 +14,7 @@
     <EntitySetMapping Name="Files">
       <EntityTypeMapping TypeName="hrebec_dataModel.Files">
         <MappingFragment StoreEntitySet="Files">
+          <ScalarProperty Name="Kategorie" ColumnName="Kategorie" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Název" ColumnName="Název" />
           <ScalarProperty Name="Cesta" ColumnName="Cesta" />
