@@ -11,7 +11,8 @@
     @foreach (Files f in Model)
     {
         <div class="file">
-            <i class="material-icons md-36">insert_drive_file</i>
+            <a href="@Url.Action("Download","Dokumenty",new { id = f.ID })"><span class="material-icons md-36" id="no_color">insert_drive_file</span></a>
+            <a href="@Url.Action("Delete","Dokumenty",new {id=f.ID})" id="delete">X</a>
             <div class="name">
                 @Html.ActionLink(f.Název, "Download", "Dokumenty", new { id = f.ID }, new { })
             </div>

@@ -19,6 +19,7 @@
     <Property Name="Velikost" Type="float" Nullable="false" />
     <Property Name="Pocet_Stazeni" Type="int" />
     <Property Name="Datum_Nahrani" Type="date" Nullable="false" />
+    <Property Name="Kategorie" Type="nchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Image">
     <Key>
