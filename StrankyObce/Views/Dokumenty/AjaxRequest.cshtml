@@ -1,0 +1,23 @@
+﻿@using DataAcces.Models
+
+@model List<Files>
+
+@{ 
+    Layout = null;
+
+}
+<h2>Výsledek hledání:</h2>
+<div class="container-clanky">
+    @foreach (Files f in Model)
+    {
+        <div class="file">
+            <i class="material-icons md-36">insert_drive_file</i>
+            <div class="name">
+                @Html.ActionLink(f.Název, "Download", "Dokumenty", new { id = f.ID }, new { })
+            </div>
+        </div>
+
+
+
+    }
+</div>
