@@ -1,4 +1,11 @@
-﻿
+﻿#searchbtn {
+    font-size: large;
+    padding: 5px 15px 5px 15px;
+    margin-bottom: 5px;
+}
+
+
+
 .container-clanky {
     display: inline-flex;
     flex-flow: row;
@@ -52,3 +59,48 @@ footer {
     display: none
 }
 
+#search {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: large;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 5px 15px 5px 15px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    margin-top:2px;
+}
+
+
+#search:focus {
+        width: 100%;
+    }
+
+
+.file{
+    position:relative;
+    width:70px;
+    height:auto;
+    padding:0;
+   margin-left:10px;
+}
+.file .name{
+    position:relative;
+   margin:0;
+    padding:0;
+    left:5px;
+}
+
+
+.material-icons.md-36 {
+    font-size: 36px;
+ 
+}
+
+#ajax-content{
+    margin-top:20px;
+}

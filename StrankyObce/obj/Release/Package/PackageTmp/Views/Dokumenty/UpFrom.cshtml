@@ -1,6 +1,11 @@
-﻿@section main{
+﻿@using DataAcces.Models
+
+
+@section main{
     <h1>Dokumenty</h1>
 }
+
+
 @if (Request.IsAuthenticated)
 {
     @section adminMenu{
@@ -16,6 +21,62 @@
 
     }
 }
+
+
+<h2>Vyhledat:</h2>
+<div>
+    <input type="text" name="search" placeholder="Vyhledat" id="search">
+    <span id="searchbtn" class="btn btn-default large" onclick="getAjaxContend()">Hledat</span>
+</div>
+
+<div class="result">
+    <h2>Nejnovější</h2>
+    <div class="container-clanky">
+        @foreach (Files f in ViewBag.date)
+        {
+            <div class="file">
+                <i class="material-icons md-36">insert_drive_file</i>
+                <div class="name">
+                    @Html.ActionLink(f.Název, "Download", "Dokumenty", new { id = f.ID }, new { })
+                </div>
+            </div>
+
+
+
+        }
+    </div>
+
+    <h2>Nejtahovanější</h2>
+
+
+    <div class="container-clanky">
+        @foreach (Files f in ViewBag.date)
+        {
+            <div class="file">
+                <i class="material-icons md-36">insert_drive_file</i>
+                <div class="name">
+                    @Html.ActionLink(f.Název, "Download", "Dokumenty", new { id = f.ID }, new { })
+                </div>
+            </div>
+
+
+
+        }
+    </div>
+</div>
+
+<div id="ajax-content">
+
+</div>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -49,8 +110,37 @@
                 $("#cancel").show();
             }
         });
-    });
+
+        $("#searchbtn").click(function () { //skrytí sekce nejstahovanejsi a nejnovejsi
+            $(".result").hide();
+
+        });
+
+        $('#search').bind('input propertychange', function () {
+
+            if (this.value.length == 0) {
+                $(".result").show();
+            }
+
+            // window.alert("not implemeted yet");
+        });
+
+    }); //document ready
+
+</script>
 
 
+<script type="text/javascript">
 
+function getAjaxContend() {
+
+    var txt = $('#search').val();
+
+    $.get('@Url.Action("AjaxRequest", "Dokumenty")', { text: txt })
+        .done(function (data) {
+            $("#ajax-content").html(data);
+        });
+
+
+    };
 </script>

@@ -735,6 +735,7 @@
     <Content Include="Views\StaticPages\Page_Show.cshtml" />
     <Content Include="Views\StaticPages\Page_Edit.cshtml" />
     <Content Include="Views\Dokumenty\UpFrom.cshtml" />
+    <Content Include="Views\Dokumenty\AjaxRequest.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
