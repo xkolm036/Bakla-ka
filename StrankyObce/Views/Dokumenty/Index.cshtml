@@ -1,0 +1,159 @@
+﻿@using DataAcces.Models
+
+
+@section main{
+    <h1>Dokumenty</h1>
+}
+
+
+@if (Request.IsAuthenticated)
+{
+    @section adminMenu{
+
+        <a href="#" class="list-group-item active">Detail článku</a>
+        <a href="#" id="insert" class="list-group-item">Vložit soubor</a>
+
+        @using (Html.BeginForm("Upload", "Dokumenty", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+            <input type="file" name="file" />
+            <input type="submit" value="Nahrát" class="list-group-item" />
+        }
+        <a href="#" id="cancel" class="list-group-item">Zrušit výběr</a>
+
+    }
+}
+
+
+<h2>Vyhledat:</h2>
+<div>
+    <input type="text" name="search" placeholder="Vyhledat" id="search">
+    <span id="searchbtn" class="btn btn-default large" onclick="getAjaxContend()">Hledat</span>
+</div>
+
+<div class="result">
+    <h2>Nejnovější</h2>
+    <div class="container-clanky">
+        @foreach (Files f in ViewBag.date)
+        {
+            <div class="file">
+
+                <a href="@Url.Action("Download","Dokumenty",new { id = f.ID })"><span class="material-icons md-36" id="no_color">insert_drive_file</span></a>
+                <a href="@Url.Action("Delete","Dokumenty",new {id=f.ID})" id="delete">X</a>
+                <div class="name">
+                    @Html.ActionLink(f.Název, "Download", "Dokumenty", new { id = f.ID }, new { })
+                </div>
+            </div>
+
+
+
+        }
+    </div>
+
+    <h2>Nejtahovanější</h2>
+
+
+    <div class="container-clanky">
+        @foreach (Files f in ViewBag.date)
+        {
+            <div class="file">
+                <a href="@Url.Action("Download","Dokumenty",new { id = f.ID })"><span class="material-icons md-36" id="no_color">insert_drive_file</span></a>
+                <a href="@Url.Action("Delete","Dokumenty",new {id=f.ID})" id="delete">X</a>
+                <div class="name">
+                    @Html.ActionLink(f.Název, "Download", "Dokumenty", new { id = f.ID }, new { })
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+
+<div id="ajax-content">
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Button logic, hide /show button depend on selected file-->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('input[type = "file"]').hide();
+        $('input[type = "submit"]').hide();
+        $("#cancel").hide();
+
+        $("#insert").click(function () {
+            if ($(this).html() == "Vložit soubor")
+                $('input[type = "file"]').click();
+            else
+                $('input[type = "submit"]').click();
+        });
+
+        $("#cancel").click(function () {
+            $("#insert").show();
+            $("#insert").html("Vložit soubor");
+            $("#cancel").hide();
+        });
+
+
+        $('input[type="file"]').change(function (e) {
+
+            var fileName = e.target.files[0].name;
+            if (fileName != "") {
+                $("#insert").html("Nahrát: " + fileName);
+                $("#cancel").show();
+            }
+        });
+
+        $("#searchbtn").click(function () { //skrytí sekce nejstahovanejsi a nejnovejsi
+            $(".result").hide();
+
+        });
+
+        $('#search').bind('input propertychange', function () {
+
+            if (this.value.length == 0) {
+                $(".result").show();
+            }
+
+            // window.alert("not implemeted yet");
+        });
+
+    }); //document ready
+
+</script>
+
+
+<script type="text/javascript">
+
+    function getAjaxContend() {
+
+        var txt = $('#search').val();
+
+        $.get('@Url.Action("AjaxRequest", "Dokumenty")', { text: txt })
+            .done(function (data) {
+            $("#ajax-content").html(data);
+        });
+    };
+
+    function AjaxDelete(event) {
+        var id = event.currentTarget.getAttribute('data-id');
+        var txt = $('#search').val();
+
+        $.get('@Url.Action("delete", "Dokumenty")', { identificator: id })
+        .done(function (data) {
+            getAjaxContend()
+        });
+
+    };
+
+
+</script>
