@@ -1,0 +1,258 @@
+<h1><strong>Dětsk&yacute; l&eacute;kař - MUDr. Pavel Sk&aacute;la</strong></h1>
+
+<p><strong>Praktick&yacute; l&eacute;kař pro&nbsp;děti a&nbsp;dorost, Dětsk&aacute; endokrinologie a&nbsp;diabetologie</strong><br />
+<a href="http://doktor-skala.cz">http://doktor-skala.cz</a><br />
+<strong>Upozorněn&iacute;:</strong> od&nbsp;<strong>1.4.2014</strong> je přesunuta ordinace dětsk&eacute;ho l&eacute;kaře ze&nbsp;Hřebče do&nbsp;Bu&scaron;těhradu, kde jsou roz&scaron;&iacute;řeny ordinačn&iacute; hodiny ve&nbsp;stejn&eacute;m čase.</p>
+
+<h2><strong>&nbsp;Ordinace Bu&scaron;těhrad</strong></h2>
+
+<p><strong>Adresa:</strong> Kladensk&aacute; 433, 273&nbsp;43&nbsp;Bu&scaron;těhrad<br />
+<strong>Telefon:</strong> 312&nbsp;250&nbsp;829</p>
+
+<p><br />
+<strong>Ordinačn&iacute; hodiny:</strong></p>
+
+<table border="1" cellpadding="1" cellspacing="1" style="height:412px; width:516px">
+	<tbody>
+		<tr>
+			<td style="background-color:#ccffcc; width:52.54px">
+			<p><strong>ponděl&iacute;</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; width:181.33px">
+			<p><strong>10.00 - 12.00</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; width:271.66px">
+			<p><strong>13.00 - 17.30<br />
+			(13.00 - 15.30 v&nbsp;době letn&iacute;ch pr&aacute;zdnin)</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color:#ccffcc; width:52.54px">
+			<p><strong>&uacute;ter&yacute;</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; width:181.33px">
+			<p><strong>8.00 - 9.00</strong></p>
+
+			<p><strong>(odběry pro&nbsp;objednan&eacute;)</strong></p>
+
+			<p>&nbsp;</p>
+
+			<p><strong>9.00 - 11.30</strong></p>
+
+			<p><strong>(kojeneck&aacute; poradna)</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; width:271.66px">
+			<p><strong>12.00 - 14.00</strong><br />
+			&nbsp;</p>
+
+			<p><strong>14.00 - 16.00</strong></p>
+
+			<p><strong>(prevence pro&nbsp;objednan&eacute;)</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color:#ccffcc; width:52.54px">
+			<p><strong>středa</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; width:181.33px">
+			<p><strong>8.00 -&nbsp;11.30</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; width:271.66px">
+			<p><strong>&nbsp;---</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color:#ccffcc; width:52.54px">
+			<p><strong>čtvrtek</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; width:181.33px">
+			<p><strong>11.00 - 12.30</strong></p>
+
+			<p><strong>(kojeneck&aacute; poradna)</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; width:271.66px">
+			<p><strong>12.30 - 14.00</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color:#ccffcc; width:52.54px">
+			<p><strong>p&aacute;tek</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; width:181.33px">
+			<p><strong>9.00 - 11.30</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; width:271.66px">
+			<p><strong>12.00 - 14.00</strong></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<h1><strong>Obvodn&iacute; l&eacute;kař - MUDr. Olga &Scaron;imovičov&aacute;</strong>&nbsp;</h1>
+
+<p><strong>Praktick&yacute; l&eacute;kař pro&nbsp;dospěl&eacute;</strong><br />
+<a href="http://simbio.care">http://simbio.care</a></p>
+
+<h2><strong><strong>Ordinace Hřebeč</strong></strong></h2>
+
+<p><strong>Adresa:</strong>&nbsp; Kladensk&aacute; 371, 273&nbsp;45&nbsp;Hřebeč<br />
+<strong>Telefon:</strong>&nbsp; 774&nbsp;33&nbsp;07&nbsp;07</p>
+
+<p><strong>Ordinačn&iacute; hodiny:</strong></p>
+
+<table border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td style="background-color:#ccffcc; border-color:windowtext; width:58pt">
+			<p><strong>Ponděl&iacute;</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:90.7pt">
+			<p><strong>---</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:90.7pt">
+			<p><strong>---</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; border-color:currentColor; text-align:center; width:90.7pt"><strong>---</strong></td>
+		</tr>
+		<tr>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:58pt">
+			<p><strong>&Uacute;ter&yacute;</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:90.7pt">
+			<p><strong>7.30&nbsp;- 11.00</strong></p>
+
+			<p><strong>akutn&iacute;</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:90.7pt">
+			<p><strong>11.00&nbsp;-&nbsp;13.30</strong></p>
+
+			<p><strong>objednan&iacute;</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; border-color:currentColor; text-align:center; width:90.7pt">
+			<p><strong>16.00 - 18.00</strong></p>
+
+			<p><strong>objednan&iacute;</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:58pt">
+			<p><strong>Středa</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:90.7pt">
+			<p><strong>---</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:90.7pt">
+			<p><strong>---</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; border-color:currentColor; text-align:center; width:90.7pt"><strong>---</strong></td>
+		</tr>
+		<tr>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:58pt">
+			<p><strong>Čtvrtek</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:90.7pt">
+			<p><strong>7.30&nbsp;- 11.00</strong></p>
+
+			<p><strong>akutn&iacute;</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:90.7pt">
+			<p><strong>11.00 - 13.30</strong></p>
+
+			<p><strong>objednan&iacute;</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; border-color:currentColor; text-align:center; width:90.7pt">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:58pt">
+			<p><strong>P&aacute;tek</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:90.7pt">
+			<p><strong>---</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:90.7pt">
+			<p><strong>12.00 &ndash; 13.30</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; border-color:currentColor; text-align:center; width:90.7pt"><strong>---</strong></td>
+		</tr>
+	</tbody>
+</table>
+
+<h2><strong><strong>Ordinace Hostouň</strong></strong></h2>
+
+<p><strong>Adresa:</strong>&nbsp; Jenečsk&aacute; 47, 273&nbsp;53&nbsp;Hostouň<br />
+<strong>Telefon:&nbsp; </strong>774 33&nbsp;07&nbsp;07</p>
+
+<p><strong>Ordinačn&iacute; hodiny:</strong></p>
+
+<table border="1" cellpadding="0" cellspacing="0" style="width:422.32px">
+	<tbody>
+		<tr>
+			<td style="background-color:#ccffcc; border-color:windowtext; width:58pt">
+			<p><strong>Ponděl&iacute;</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:159px">
+			<p><strong>7.30 &ndash; 11.00</strong></p>
+
+			<p><strong>akutn&iacute;</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:165px">
+			<p><strong>12.00 &ndash; 15.30</strong></p>
+
+			<p><strong>objednan&iacute;</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:58pt">
+			<p><strong>&Uacute;ter&yacute;</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:159px">
+			<p><strong>---</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:165px">
+			<p><strong>---</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:58pt">
+			<p><strong>Středa</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:159px">
+			<p><strong>7.30 &ndash; 12.00</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:165px">
+			<p><strong>---</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:58pt">
+			<p><strong>Čtvrtek</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:159px">
+			<p><strong>---</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:165px">
+			<p><strong>---</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:58pt">
+			<p><strong>P&aacute;tek</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:159px">
+			<p><strong>7.30 &ndash; 11.00</strong></p>
+			</td>
+			<td style="background-color:#ccffcc; border-color:currentColor; width:165px">
+			<p><strong>---</strong></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p><strong>Odběry krve - denně od&nbsp;7.30 do&nbsp;9.45 hod.</strong></p>
+
+<h2>&nbsp;<strong>Zubn&iacute; l&eacute;kař</strong></h2>
+
+<p><strong>Stomatologie</strong></p>
+
+<p>MUDr. Jarmila Frankov&aacute;, kter&aacute; dlouh&aacute; l&eacute;ta pečovala o&nbsp;na&scaron;e zuby v&nbsp;hřebečsk&eacute; a&nbsp;hostouňsk&eacute; ordinaci, svou činnost ukončila a&nbsp;obě ordinace na&nbsp;konci ř&iacute;jna 2011&nbsp;zavřela.<br />
+V současn&eacute; době tedy v&nbsp;na&scaron;&iacute; obci zubař nen&iacute; a&nbsp;pacienti si mus&iacute; zajistit nov&eacute;ho sami.</p>
