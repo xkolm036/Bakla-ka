@@ -21,13 +21,13 @@
     <!--/Scripts-->
     <!-- Css style -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link href="~/Content/mujcss.css" rel="stylesheet">
+ <link href="~/Content/mujcss.css" rel="stylesheet">
     <link href="~/Content/bootstrap.min.css" rel="stylesheet">
     <link href="~/Content/offcanvas.css" rel="stylesheet">
     @RenderSection("Css", false)
     <!-- /Css style -->
 
-    <title>BP</title>
+    <title>Hřebeč</title>
 </head>
 
 <body>
@@ -43,7 +43,7 @@
                 <a class="navbar-brand" href="@Url.Action("Index","Home")">Stránky Hřebeče</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav">    
                     <li><a href="@Url.Action("index","Home")">Fotografie</a></li>
 
                     <li id="fat-menu" class="dropdown, clearfix,navbar-right">
@@ -52,21 +52,18 @@
                             <li> <a href="@Url.Action("Page_Show","StaticPages",new {name="Firmy" })">Firmy</a></li>
                             <li> <a href="@Url.Action("Page_Show","StaticPages",new {name="Lékaři" })">Lékaři</a></li>
                             <li> <a href="@Url.Action("Page_Show","StaticPages",new {name="Knihovna" })">Knihovna</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
                         </ul>
-                    </li> <!-- /dropdown-->
+                    </li > <!-- /dropdown-->
+
                     <li><a href="@Url.Action("Page_Show","StaticPages",new {name="Kontakty"})">Kontakty</a></li>
                     <li><a href="@Url.Action("Index", "Dokumenty")">Dokumenty</a></li>
+                   
                 </ul>
-                @Html.Partial("_LoginPartial")
-
             </div>
-
         </div>
     </nav><!-- /.navbar -->
 
-    <div class="container">
+    <div class="container contend">
 
         <!-- notifikace -->
         @if (TempData["msg-succes"] != null)
@@ -123,9 +120,16 @@
     <footer id="center">
         <p class="alert-danger">Tato stránka je vytvořena jako studenský projekt</p>
         <p>Autor: Martin Kolařík</p>
-        @Html.ActionLink("Přihlásit se", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
-
-
+        @if (Request.IsAuthenticated)
+        {
+            @Html.Partial("_LoginPartial")
+        }
+        else
+        {
+            @Html.ActionLink("Přihlásit se", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+        }
+           
+      
     </footer>
 
 

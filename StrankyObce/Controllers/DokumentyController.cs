@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace StrankyObce.Controllers
 {
+    [AllowAnonymous]
     public class DokumentyController : Controller
     {
         // GET: Dokumenty
