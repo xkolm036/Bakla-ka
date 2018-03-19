@@ -57,7 +57,7 @@
                         </ul>
                     </li> <!-- /dropdown-->
                     <li><a href="@Url.Action("Page_Show","StaticPages",new {name="Kontakty"})">Kontakty</a></li>
-                    <li><a href="@Url.Action("UpFrom", "Dokumenty")">Dokumenty</a></li>
+                    <li><a href="@Url.Action("Index", "Dokumenty")">Dokumenty</a></li>
                 </ul>
                 @Html.Partial("_LoginPartial")
 
@@ -90,7 +90,7 @@
         }
         <!-- /notifikace -->
 
-     
+
         <div class="row row-offcanvas row-offcanvas-right">
 
             <div class="col-xs-12 col-sm-9">
@@ -99,7 +99,6 @@
                     <p class="pull-right visible-xs">
                         <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Nastavení</button>
                     </p>
-
                 }
 
                 <div class="jumbotron" id=@ViewBag.Background>
@@ -118,7 +117,6 @@
                     </div>
                 </div>
             }
-            <!-- Html.Partial("_EditMenuPartial")-->
         </div>
         <div class="push"></div>
     </div><!--/.container-->
@@ -126,7 +124,7 @@
         <p class="alert-danger">Tato stránka je vytvořena jako studenský projekt</p>
         <p>Autor: Martin Kolařík</p>
         @Html.ActionLink("Přihlásit se", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
-       
+
 
     </footer>
 

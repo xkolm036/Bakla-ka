@@ -36,15 +36,14 @@ namespace StrankyObce.Controllers
             return View();
         }
 
-   
 
+        [Authorize]
+        [HttpPost]
         public ActionResult Upload(HttpPostedFileBase file)
         {
 
             try
             {
-
-
                 string path = Path.Combine(Server.MapPath(@"~/App_Data/Dokumenty/"), file.FileName);
                 if (file.ContentLength > 0)
                 {
@@ -100,7 +99,8 @@ namespace StrankyObce.Controllers
             }
                
         }
-
+        [Authorize]
+        [HttpPost]
         public ActionResult AjaxRequest(string text)
         {
             List<Files> filesFromDB = new List<Files>();
@@ -119,7 +119,8 @@ namespace StrankyObce.Controllers
                 return View(filesFromDB);
         }
 
-
+        [Authorize]
+        [HttpPost]
         public ActionResult delete(List<Files> checkedfiles)
         {
             Files filesFromDB = new Files();
