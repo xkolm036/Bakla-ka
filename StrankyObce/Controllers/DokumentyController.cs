@@ -31,6 +31,9 @@ namespace StrankyObce.Controllers
                     date.Add(f);
             }
 
+            down.OrderByDescending(x => x.Pocet_Stazeni);
+            date.OrderByDescending(x => x.Datum_Nahrani);
+
             ViewBag.down = down;
             ViewBag.date = date;
 

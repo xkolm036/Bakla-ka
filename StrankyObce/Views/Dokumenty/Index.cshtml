@@ -48,7 +48,7 @@
     <!--Skece Nejstahovanější-->
     <h2>Nejtahovanější</h2>  
     <div class="container-clanky">
-        @foreach (Files f in ViewBag.date)
+        @foreach (Files f in ViewBag.down)
         {
             <div class="file">
                 <a href="@Url.Action("Download","Dokumenty",new { id = f.ID })"><span class="material-icons md-36" id="no_color">insert_drive_file</span></a>
