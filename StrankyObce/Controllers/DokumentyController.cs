@@ -120,17 +120,22 @@ namespace StrankyObce.Controllers
         }
 
 
-        public ActionResult delete(int id)
+        public ActionResult delete(List<Files> checkedfiles)
         {
             Files filesFromDB = new Files();
             using (hrebec_dataEntities contex = new hrebec_dataEntities())
             {
-
-                filesFromDB = contex.Files.FirstOrDefault(f => f.ID== id);
-                contex.Files.Remove(filesFromDB);
-                contex.SaveChanges();
+               foreach(Files file in checkedfiles)
+                {
+                    if (file.selected == true) { 
+                    filesFromDB = contex.Files.FirstOrDefault(f => f.ID == file.ID);
+                    contex.Files.Remove(filesFromDB);
+                    contex.SaveChanges();
+                    }
+                }
+              
             }
-
+          
             return RedirectToAction("Index");
         }
 

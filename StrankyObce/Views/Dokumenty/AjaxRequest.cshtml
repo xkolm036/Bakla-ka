@@ -2,23 +2,37 @@
 
 @model List<Files>
 
-@{ 
+@{
     Layout = null;
 
 }
 <h2>Výsledek hledání:</h2>
-<div class="container-clanky">
-    @foreach (Files f in Model)
-    {
-        <div class="file">
-            <a href="@Url.Action("Download","Dokumenty",new { id = f.ID })"><span class="material-icons md-36" id="no_color">insert_drive_file</span></a>
-            <a href="@Url.Action("Delete","Dokumenty",new {id=f.ID})" id="delete">X</a>
-            <div class="name">
-                @Html.ActionLink(f.Název, "Download", "Dokumenty", new { id = f.ID }, new { })
+
+@using (Html.BeginForm("Delete", "Dokumenty", FormMethod.Post))
+{
+    <div class="container-clanky">
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            <div class="file">
+                <a href="@Url.Action("Download", "Dokumenty", new { id = Model[i].ID })"><span class="material-icons md-36" id="no_color">insert_drive_file</span></a>
+                @if (Request.IsAuthenticated) //overeni administrátora
+                {
+                    @Html.CheckBoxFor(f => Model[i].selected, new { id = "delete" })
+                    @Html.HiddenFor(f => Model[i].ID)
+                }
+                <div class="name">
+                    @Html.ActionLink(Model[i].Název, "Download", "Dokumenty", new { id = Model[i].ID }, new { })
+                </div>
             </div>
-        </div>
+
+        }
+
+    </div>
+            <input type="submit" value="delete">
+}
 
 
+<script type="text/javascript">
+    $("input[value=delete]").hide();
 
-    }
-</div>
+</script>

@@ -11,6 +11,7 @@
     @section adminMenu{
 
         <a href="#" class="list-group-item active">Detail článku</a>
+        <a href="#" id="smazat" class="list-group-item">Odstranit vybrané</a>
         <a href="#" id="insert" class="list-group-item">Vložit soubor</a>
 
         @using (Html.BeginForm("Upload", "Dokumenty", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -25,62 +26,44 @@
 
 
 <h2>Vyhledat:</h2>
-<div>
-    <input type="text" name="search" placeholder="Vyhledat" id="search">
-    <span id="searchbtn" class="btn btn-default large" onclick="getAjaxContend()">Hledat</span>
-</div>
 
+    <input type="text" name="search" placeholder="Vyhledat" id="search">
+
+
+<!--Skece Nejnovejsi-->
 <div class="result">
     <h2>Nejnovější</h2>
     <div class="container-clanky">
         @foreach (Files f in ViewBag.date)
         {
             <div class="file">
-
                 <a href="@Url.Action("Download","Dokumenty",new { id = f.ID })"><span class="material-icons md-36" id="no_color">insert_drive_file</span></a>
-                <a href="@Url.Action("Delete","Dokumenty",new {id=f.ID})" id="delete">X</a>
                 <div class="name">
                     @Html.ActionLink(f.Název, "Download", "Dokumenty", new { id = f.ID }, new { })
                 </div>
             </div>
-
-
-
         }
     </div>
 
-    <h2>Nejtahovanější</h2>
-
-
+    <!--Skece Nejstahovanější-->
+    <h2>Nejtahovanější</h2>  
     <div class="container-clanky">
         @foreach (Files f in ViewBag.date)
         {
             <div class="file">
                 <a href="@Url.Action("Download","Dokumenty",new { id = f.ID })"><span class="material-icons md-36" id="no_color">insert_drive_file</span></a>
-                <a href="@Url.Action("Delete","Dokumenty",new {id=f.ID})" id="delete">X</a>
                 <div class="name">
                     @Html.ActionLink(f.Název, "Download", "Dokumenty", new { id = f.ID }, new { })
                 </div>
             </div>
-
         }
     </div>
 </div>
 
-<div id="ajax-content">
+<!--Zde se vygeneruje pohled AjxaRquest-->
+<div id="ajax-content"> 
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- Button logic, hide /show button depend on selected file-->
@@ -113,18 +96,29 @@
             }
         });
 
-        $("#searchbtn").click(function () { //skrytí sekce nejstahovanejsi a nejnovejsi
-            $(".result").hide();
-
-        });
-
+        //po změně ve vyhledavacim poli 
         $('#search').bind('input propertychange', function () {
 
             if (this.value.length == 0) {
                 $(".result").show();
+                document.getElementById("ajax-content").innerHTML = "";
+                // pokud je vyhl. pole prazdne smaze predchozi vyhledavani a zobrazi sekce
             }
+            else {
+                $(".result").hide(); //skryje sekci nejstahov a nejnov
+                getAjaxContend();    //ziska data podle textu ve vhyl poli
+            }
+        });
 
-            // window.alert("not implemeted yet");
+
+        $("#smazat").click(function () {
+            var isChecked = $("input[type=checkbox]").is(":checked"); //overeni zda je zaskrtlý nejaky checkbox
+            if (isChecked)
+            {
+                $('input[value="delete"]').click();
+            }   
+            else
+                alert("Nejprve je nutné označit soubory");
         });
 
     }); //document ready
@@ -133,7 +127,7 @@
 
 
 <script type="text/javascript">
-
+    //Poslaní dat do controlleru, který nám vygeneruje pohled s hledanymi soubory
     function getAjaxContend() {
 
         var txt = $('#search').val();
@@ -144,16 +138,6 @@
         });
     };
 
-    function AjaxDelete(event) {
-        var id = event.currentTarget.getAttribute('data-id');
-        var txt = $('#search').val();
-
-        $.get('@Url.Action("delete", "Dokumenty")', { identificator: id })
-        .done(function (data) {
-            getAjaxContend()
-        });
-
-    };
 
 
 </script>

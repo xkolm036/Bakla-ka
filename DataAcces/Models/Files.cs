@@ -21,5 +21,7 @@ namespace DataAcces.Models
         public Nullable<int> Pocet_Stazeni { get; set; }
         public System.DateTime Datum_Nahrani { get; set; }
         public string Kategorie { get; set; }
+
+        public bool selected { get; set; }
     }
 }
