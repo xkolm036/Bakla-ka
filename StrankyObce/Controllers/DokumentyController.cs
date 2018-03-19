@@ -12,6 +12,7 @@ namespace StrankyObce.Controllers
     public class DokumentyController : Controller
     {
         // GET: Dokumenty
+        [AllowAnonymous]
         public ActionResult Index()
         {
             List<Files> down = new List<Files>();
