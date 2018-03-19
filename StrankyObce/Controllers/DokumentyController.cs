@@ -102,7 +102,7 @@ namespace StrankyObce.Controllers
                
         }
         [Authorize]
-        [HttpPost]
+   
         public ActionResult AjaxRequest(string text)
         {
             List<Files> filesFromDB = new List<Files>();
