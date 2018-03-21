@@ -14,6 +14,7 @@
     <EntitySetMapping Name="Files">
       <EntityTypeMapping TypeName="hrebec_dataModel.Files">
         <MappingFragment StoreEntitySet="Files">
+          <ScalarProperty Name="Kategorie" ColumnName="Kategorie" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Název" ColumnName="Název" />
           <ScalarProperty Name="Cesta" ColumnName="Cesta" />
@@ -23,14 +24,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Image">
-      <EntityTypeMapping TypeName="hrebec_dataModel.Image">
-        <MappingFragment StoreEntitySet="Image">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Nazev" ColumnName="Nazev" />
-          <ScalarProperty Name="Umisteni" ColumnName="Umisteni" />
-          <ScalarProperty Name="Rok_nahrani" ColumnName="Rok_nahrani" />
+    <EntitySetMapping Name="ImagesSet">
+      <EntityTypeMapping TypeName="hrebec_dataModel.Images">
+        <MappingFragment StoreEntitySet="Images">
           <ScalarProperty Name="popisek" ColumnName="popisek" />
+          <ScalarProperty Name="Rok_nahrani" ColumnName="Rok_nahrani" />
+          <ScalarProperty Name="Umisteni" ColumnName="Umisteni" />
+          <ScalarProperty Name="Nazev" ColumnName="Nazev" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

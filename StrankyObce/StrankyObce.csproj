@@ -194,6 +194,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClankyController.cs" />
     <Compile Include="Controllers\DokumentyController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StaticPagesController.cs" />
@@ -206,6 +207,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Dokumenty\init.txt" />
+    <Content Include="App_Data\Images\init.txt" />
     <Content Include="ckeditor\adapters\jquery.js" />
     <Content Include="ckeditor\build-config.js" />
     <Content Include="ckeditor\ckeditor.js" />
@@ -672,8 +675,6 @@
     <Content Include="ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
     <Content Include="ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="ckeditor\skins\moono-dark\readme.md" />
-    <None Include="App.Config" />
-    <Content Include="App_Data\Dokumenty\teze.doc" />
     <None Include="Properties\PublishProfiles\Kolarik-BP - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\StrankyHrebec - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -728,6 +729,7 @@
     <Content Include="Views\Dokumenty\AjaxRequest.cshtml" />
     <Content Include="Views\Dokumenty\Index.cshtml" />
     <Content Include="Web.config" />
+    <Content Include="Views\Gallery\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

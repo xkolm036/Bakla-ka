@@ -46,10 +46,19 @@ namespace StrankyObce.Controllers
         [HttpPost]
         public ActionResult Upload(HttpPostedFileBase file)
         {
-
+            
             try
             {
                 string path = Path.Combine(Server.MapPath(@"~/App_Data/Dokumenty/"), file.FileName);
+
+                if (System.IO.File.Exists(path))
+                {
+                    TempData["msg-error"] = "Soubor již existuje";
+                    return RedirectToAction("Index", "Dokumenty");
+                }
+
+
+          
                 if (file.ContentLength > 0)
                 {
 
@@ -90,7 +99,7 @@ namespace StrankyObce.Controllers
         {
             using (hrebec_dataEntities contex = new hrebec_dataEntities())
             {
-                Files f =new Files();
+                Files f = new Files();
                 f = contex.Files.FirstOrDefault(x => x.ID == id);
                 f.Pocet_Stazeni += 1;
                 contex.SaveChanges();
@@ -98,18 +107,18 @@ namespace StrankyObce.Controllers
                 byte[] fileBytes = System.IO.File.ReadAllBytes(f.Cesta);
                 var response = new FileContentResult(fileBytes, "application/octet-stream");
                 response.FileDownloadName = f.Název;
-          
+
                 return response;
 
             }
-               
+
         }
         [Authorize]
-   
+
         public ActionResult AjaxRequest(string text)
         {
             List<Files> filesFromDB = new List<Files>();
-            using (hrebec_dataEntities contex= new hrebec_dataEntities())
+            using (hrebec_dataEntities contex = new hrebec_dataEntities())
             {
 
                 var DBfiles = contex.Files.Where(f => f.Název.ToLower().Contains(text.ToLower()));
@@ -121,7 +130,7 @@ namespace StrankyObce.Controllers
 
             }
 
-                return View(filesFromDB);
+            return View(filesFromDB);
         }
 
         [Authorize]
@@ -131,17 +140,29 @@ namespace StrankyObce.Controllers
             Files filesFromDB = new Files();
             using (hrebec_dataEntities contex = new hrebec_dataEntities())
             {
-               foreach(Files file in checkedfiles)
+                foreach (Files file in checkedfiles)
                 {
-                    if (file.selected == true) { 
-                    filesFromDB = contex.Files.FirstOrDefault(f => f.ID == file.ID);
-                    contex.Files.Remove(filesFromDB);
-                    contex.SaveChanges();
+
+                    if (file.selected == true)
+                    {
+                        try
+                        {
+                            filesFromDB = contex.Files.FirstOrDefault(f => f.ID == file.ID);
+                            System.IO.File.Delete(filesFromDB.Cesta); // odstraneni ze serveru
+                            TempData["msg-succes"] = "Sobor " + filesFromDB.Název + "Byl úspěšně odstraněn";
+                        }
+                        catch { TempData["msg-error"] = "Sobor " + filesFromDB.Název + "Nebyl nalezen na serveru"; }
+                        finally
+                        {
+                            contex.Files.Remove(filesFromDB);       //odstraneni z db
+                            contex.SaveChanges();
+                        }
                     }
+
                 }
-              
+
             }
-          
+
             return RedirectToAction("Index");
         }
 

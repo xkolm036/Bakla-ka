@@ -24,13 +24,13 @@ namespace DataAcces.Models
             return clZdb;
         }
 
-        public static Image SelectByID_Img(int id)
+        public static Images SelectByID_Img(int id)
         {
-            Image img = new Image();
+            Images img = new Images();
             img = null;
             using (hrebec_dataEntities context = new hrebec_dataEntities())
             {
-                img = context.Image.FirstOrDefault(c => c.ID == id);
+                img = context.ImagesSet.FirstOrDefault(c => c.ID == id);
             }
             return img;
         }
@@ -57,11 +57,11 @@ namespace DataAcces.Models
             }
         }
 
-        public static void AddToDB(Image Im)
+        public static void AddToDB(Images Im)
         {
             using (hrebec_dataEntities context = new hrebec_dataEntities())
             {
-                context.Image.Add(Im);
+                context.ImagesSet.Add(Im);
                 context.SaveChanges();
             }
         }
@@ -108,17 +108,17 @@ namespace DataAcces.Models
             }
         }
       
-        public static void FirtsN(int N, ref List<Image> image, bool all = false)
+        public static void FirtsN(int N, ref List<Images> Images, bool all = false)
         {
-            image.Clear();
+            Images.Clear();
             using (hrebec_dataEntities context = new hrebec_dataEntities())
             {
-                if (all == true) N = context.Image.Count();
-                var data = context.Image.Take(N);
+                if (all == true) N = context.ImagesSet.Count();
+                var data = context.ImagesSet.Take(N);
 
-                foreach (Image img in data)
+                foreach (Images img in data)
                 {
-                    image.Add(img);
+                    Images.Add(img);
                 }
             }
         }
@@ -136,12 +136,12 @@ namespace DataAcces.Models
             }
         }
 
-        public static void Update(Image img)
+        public static void Update(Images img)
         {
             using (hrebec_dataEntities context = new hrebec_dataEntities())
             {
-                Image Im = new Image();
-                Im = context.Image.FirstOrDefault(i => i.ID == img.ID);
+                Images Im = new Images();
+                Im = context.ImagesSet.FirstOrDefault(i => i.ID == img.ID);
                 Im = img;
                 context.SaveChanges();
             }
@@ -180,13 +180,13 @@ namespace DataAcces.Models
                 context.SaveChanges();
             }
         }
-        public static void RemoveImage(int id)
+        public static void RemoveImages(int id)
         {
             using (hrebec_dataEntities context = new hrebec_dataEntities())
             {
-                Image i = new Image();
-                i = context.Image.FirstOrDefault(c => c.ID == id);
-                context.Image.Remove(i);
+                Images i = new Images();
+                i = context.ImagesSet.FirstOrDefault(c => c.ID == id);
+                context.ImagesSet.Remove(i);
                 context.SaveChanges();
             }
         }

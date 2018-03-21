@@ -19,20 +19,21 @@
     <Property Name="Velikost" Type="Double" Nullable="false" />
     <Property Name="Pocet_Stazeni" Type="Int32" />
     <Property Name="Datum_Nahrani" Type="DateTime" Nullable="false" Precision="0" />
-  </EntityType>
-  <EntityType Name="Image">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nazev" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Umisteni" Type="String" MaxLength="350" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Rok_nahrani" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="popisek" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Kategorie" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
   </EntityType>
   <EntityContainer Name="hrebec_dataEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Clanky" EntityType="Self.Clanky" />
     <EntitySet Name="Files" EntityType="Self.Files" />
-    <EntitySet Name="Image" EntityType="Self.Image" />
+    <EntitySet Name="ImagesSet" EntityType="hrebec_dataModel.Images" />
   </EntityContainer>
+  <EntityType Name="Images">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nazev" Type="String" Nullable="false" MaxLength="200" FixedLength="true" Unicode="true" />
+    <Property Name="Umisteni" Type="String" Nullable="false" MaxLength="350" FixedLength="true" Unicode="true" />
+    <Property Name="Rok_nahrani" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="popisek" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

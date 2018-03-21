@@ -26,7 +26,7 @@
           <Property Name="Datum_Nahrani" Type="date" Nullable="false" />
           <Property Name="Kategorie" Type="nchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="Image">
+        <EntityType Name="Images">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -39,7 +39,7 @@
         <EntityContainer Name="hrebec_dataModelStoreContainer">
           <EntitySet Name="Clanky" EntityType="Self.Clanky" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Files" EntityType="Self.Files" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -66,21 +66,21 @@
           <Property Name="Datum_Nahrani" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Kategorie" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
         </EntityType>
-        <EntityType Name="Image">
+        <EntityContainer Name="hrebec_dataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clanky" EntityType="Self.Clanky" />
+          <EntitySet Name="Files" EntityType="Self.Files" />
+          <EntitySet Name="ImagesSet" EntityType="hrebec_dataModel.Images" />
+        </EntityContainer>
+        <EntityType Name="Images">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nazev" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Umisteni" Type="String" MaxLength="350" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Rok_nahrani" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Nazev" Type="String" Nullable="false" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="Umisteni" Type="String" Nullable="false" MaxLength="350" FixedLength="true" Unicode="true" />
+          <Property Name="Rok_nahrani" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="popisek" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="hrebec_dataEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Clanky" EntityType="Self.Clanky" />
-          <EntitySet Name="Files" EntityType="Self.Files" />
-          <EntitySet Name="Image" EntityType="Self.Image" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -110,14 +110,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Image">
-            <EntityTypeMapping TypeName="hrebec_dataModel.Image">
-              <MappingFragment StoreEntitySet="Image">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Nazev" ColumnName="Nazev" />
-                <ScalarProperty Name="Umisteni" ColumnName="Umisteni" />
-                <ScalarProperty Name="Rok_nahrani" ColumnName="Rok_nahrani" />
+          <EntitySetMapping Name="ImagesSet">
+            <EntityTypeMapping TypeName="hrebec_dataModel.Images">
+              <MappingFragment StoreEntitySet="Images">
                 <ScalarProperty Name="popisek" ColumnName="popisek" />
+                <ScalarProperty Name="Rok_nahrani" ColumnName="Rok_nahrani" />
+                <ScalarProperty Name="Umisteni" ColumnName="Umisteni" />
+                <ScalarProperty Name="Nazev" ColumnName="Nazev" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

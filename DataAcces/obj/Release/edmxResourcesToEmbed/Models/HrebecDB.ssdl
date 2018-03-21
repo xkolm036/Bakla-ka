@@ -19,8 +19,9 @@
     <Property Name="Velikost" Type="float" Nullable="false" />
     <Property Name="Pocet_Stazeni" Type="int" />
     <Property Name="Datum_Nahrani" Type="date" Nullable="false" />
+    <Property Name="Kategorie" Type="nchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="Image">
+  <EntityType Name="Images">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
@@ -33,6 +34,6 @@
   <EntityContainer Name="hrebec_dataModelStoreContainer">
     <EntitySet Name="Clanky" EntityType="Self.Clanky" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Files" EntityType="Self.Files" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

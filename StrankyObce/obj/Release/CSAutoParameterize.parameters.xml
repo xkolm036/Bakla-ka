@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Připojovacá řetězec v souboru web.config použitý aplikací pro přístup k databázi." defaultValue="Server=tcp:kolarikmartin.database.windows.net,1433;Initial Catalog=hrebec_data;Persist Security Info=False;User ID=smithkolarik;Password=Polav1994;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\marty\\Desktop\\StrankyObce\\StrankyObce\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\marty\\Desktop\\StrankyObce\\StrankyObce_BP\\StrankyObce\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
   </parameter>
   <parameter name="hrebec_dataEntities-Web.config Connection String" description="hrebec_dataEntities Připojovacá řetězec v souboru web.config použitý aplikací pro přístup k databázi." defaultValue="metadata=res://*/Models.HrebecDB.csdl|res://*/Models.HrebecDB.ssdl|res://*/Models.HrebecDB.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=tcp:kolarikmartin.database.windows.net,1433;initial catalog=hrebec_data;persist security info=False;user id=smithkolarik;password=Polav1994;multipleactiveresultsets=False;connect timeout=30;encrypt=True;trustservercertificate=False;App=EntityFramework&quot;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\marty\\Desktop\\StrankyObce\\StrankyObce\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='hrebec_dataEntities']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\marty\\Desktop\\StrankyObce\\StrankyObce_BP\\StrankyObce\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='hrebec_dataEntities']/@connectionString" />
   </parameter>
 </parameters>

@@ -27,6 +27,6 @@ namespace DataAcces.Models
     
         public virtual DbSet<Clanky> Clanky { get; set; }
         public virtual DbSet<Files> Files { get; set; }
-        public virtual DbSet<Image> Image { get; set; }
+        public virtual DbSet<Images> ImagesSet { get; set; }
     }
 }
