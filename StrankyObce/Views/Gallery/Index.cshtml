@@ -2,52 +2,73 @@
 
 @model List<Images>
 
+
+@section Css{
+    <link href="~/Content/Gallery.css" rel="stylesheet">
+}
+
 @section main{
     <h1>Fotogalerie</h1>
 }
-@if (Request.IsAuthenticated)
-{
-    @section adminMenu{
-        <a href="#" class="list-group-item active">Fotografie</a>
-        <a href="#" id="smazat" class="list-group-item">Odstranit vybrané</a>
-        <a href="#" id="insert" class="list-group-item">Vložit soubor</a>
-
-
-        @using (Html.BeginForm("Upload", "Gallery", new { quality = 45 }, FormMethod.Post, new { enctype = "multipart/form-data" }))
-        {
-            <input type="file" name="picture" accept="image/x-png,image/gif,image/jpeg" />
-            <input type="submit" value="Nahrát!" class="list-group-item" />
-        }
-        <a href="#" id="cancel" class="list-group-item">Zrušit výběr</a>
-
-    }}
-
-
-
-
-@using (Html.BeginForm("Delete", "Gallery", FormMethod.Post))
-{
-
-    for (int i = 0; i < Model.Count(); i++)
+<div id="admin">
+    @if (Request.IsAuthenticated)
     {
-        <div class="imgT">
-            <!-- <a href="@Url.Action("Download", "Dokumenty", new { id = Model[i].ID })" />-->
-            <img src='@Url.Content("~/Public_Images/" + Model[i].Nazev)' onclick="openModal();currentSlide(i+1)" class="hover-shadow" />
 
-            @if (Request.IsAuthenticated)
+        @section adminMenu{
+            <a href="#" class="list-group-item active">Fotografie</a>
+            <a href="#" id="smazat" class="list-group-item">Odstranit vybrané</a>
+            <a href="#" id="insert" class="list-group-item">Vložit soubor</a>
+
+
+            @using (Html.BeginForm("Upload", "Gallery", new { quality = 45 }, FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
-                @Html.CheckBoxFor(f => Model[i].selected, new { id = "ImgCheck" })
-                @Html.HiddenFor(f => Model[i].ID)
+                <input type="file" name="picture" accept="image/x-png,image/gif,image/jpeg" />
+                <input type="submit" value="Nahrát!" class="list-group-item" />
             }
-        </div>
+            <a href="#" id="cancel" class="list-group-item">Zrušit výběr</a>
+
+        }
 
     }
-
-    <input type="submit" value="delete">
-}
+</div>
 
 
+<div id="gallery">
 
+
+    @using (Html.BeginForm("Delete", "Gallery", FormMethod.Post))
+    {
+        <div class="container-clanky">
+            @for (int i = 0; i < Model.Count(); i++)
+            {
+                <div class="image">
+                 
+                    <img id="myImg@(i + 1)" src='@Url.Content("~/Public_Images/" + Model[i].Nazev)' alt="@Model[i].Nazev" onclick=test(@(i + 1)) />
+
+                    @if (Request.IsAuthenticated)
+                    {
+                        @Html.CheckBoxFor(f => Model[i].selected, new { id = "checkbox" })
+                        @Html.HiddenFor(f => Model[i].ID)
+                    }
+                </div>
+            }
+            <input type="submit" value="delete">
+        </div>
+    }
+
+    <div id="myModal" class="modal">
+
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+
+</div>
 
 
 <script type="text/javascript">
@@ -59,8 +80,10 @@
         $("#cancel").hide();
 
         $("#insert").click(function () {
-            $("input[type=file]").click();
-
+            if ($(this).html() == "Vložit soubor")
+                $('input[type = "file"]').click();
+            else
+                $('input[type = "submit"]').click();
         });
 
         $('input[type="file"]').change(function (e) {
@@ -85,4 +108,39 @@
 
 
     });
+</script>
+
+<script>
+
+
+
+    function test(id) {
+        $(".list-group-item").hide();
+        var modal = document.getElementById('myModal');
+        var img = document.getElementById("myImg" + id);
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        modal.style.display = "block";
+        modalImg.src = img.src;
+        captionText.innerHTML = img.alt;
+
+
+
+
+
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+
+            $(".list-group-item").show();
+            $("input[type=file]").hide();
+            $("input[type=submit]").hide();
+            $("#cancel").hide();
+        }
+    }
+
+
+
 </script>

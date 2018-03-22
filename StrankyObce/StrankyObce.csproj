@@ -208,6 +208,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Dokumenty\init.txt" />
+    <Content Include="Content\Gallery.css" />
     <Content Include="Public_Images\init.txt" />
     <Content Include="ckeditor\adapters\jquery.js" />
     <Content Include="ckeditor\build-config.js" />
@@ -638,6 +639,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\Gallery.js" />
     <Content Include="Scripts\offcanvas.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

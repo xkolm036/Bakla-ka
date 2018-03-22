@@ -1,6 +1,8 @@
 ﻿@using DataAcces.Models
 
 
+
+
 @section main{
     <h1>Dokumenty</h1>
 }
@@ -24,109 +26,107 @@
     }
 }
 
-
-<h2>Vyhledat:</h2>
-
+<div class="srch">
+    <h2>Vyhledat:</h2>
     <input type="text" name="search" placeholder="Vyhledat" id="search">
-
-
-<!--Skece Nejnovejsi-->
-<div class="result">
-    <h2>Nejnovější</h2>
-    <div class="container-clanky">
-        @foreach (Files f in ViewBag.date)
-        {
-            <div class="file">
-                <a href="@Url.Action("Download","Dokumenty",new { id = f.ID })"><span class="material-icons md-36" id="no_color">insert_drive_file</span></a>
-                <div class="name">
-                    @Html.ActionLink(f.Název, "Download", "Dokumenty", new { id = f.ID }, new { })
-                </div>
-            </div>
-        }
-    </div>
-
-    <!--Skece Nejstahovanější-->
-    <h2>Nejtahovanější</h2>  
-    <div class="container-clanky">
-        @foreach (Files f in ViewBag.down)
-        {
-            <div class="file">
-                <a href="@Url.Action("Download","Dokumenty",new { id = f.ID })"><span class="material-icons md-36" id="no_color">insert_drive_file</span></a>
-                <div class="name">
-                    @Html.ActionLink(f.Název, "Download", "Dokumenty", new { id = f.ID }, new { })
-                </div>
-            </div>
-        }
-    </div>
-</div>
-
-<!--Zde se vygeneruje pohled AjxaRquest-->
-<div id="ajax-content"> 
-
-</div>
-
-
-<!-- Button logic, hide /show button depend on selected file-->
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('input[type = "file"]').hide();
-        $('input[type = "submit"]').hide();
-        $("#cancel").hide();
-
-        $("#insert").click(function () {
-            if ($(this).html() == "Vložit soubor")
-                $('input[type = "file"]').click();
-            else
-                $('input[type = "submit"]').click();
-        });
-
-        $("#cancel").click(function () {
-            $("#insert").show();
-            $("#insert").html("Vložit soubor");
-            $("#cancel").hide();
-        });
-
-
-        $('input[type="file"]').change(function (e) {
-
-            var fileName = e.target.files[0].name;
-            if (fileName != "") {
-                $("#insert").html("Nahrát: " + fileName);
-                $("#cancel").show();
-            }
-        });
-
-        //po změně ve vyhledavacim poli 
-        $('#search').bind('input propertychange', function () {
-
-            if (this.value.length == 0) {
-                $(".result").show();
-                document.getElementById("ajax-content").innerHTML = "";
-                // pokud je vyhl. pole prazdne smaze predchozi vyhledavani a zobrazi sekce
-            }
-            else {
-                $(".result").hide(); //skryje sekci nejstahov a nejnov
-                getAjaxContend();    //ziska data podle textu ve vhyl poli
-            }
-        });
-
-
-        $("#smazat").click(function () {
-            var isChecked = $("input[type=checkbox]").is(":checked"); //overeni zda je zaskrtlý nejaky checkbox
-            if (isChecked)
+</div>  
+<div class="container-clanky">
+    <!--Skece Nejnovejsi-->
+    <div class="result">
+        <h2>Nejnovější</h2>
+        <div class="container-clanky">
+            @foreach (Files f in ViewBag.date)
             {
-                $('input[value="delete"]').click();
-            }   
-            else
-                alert("Nejprve je nutné označit soubory");
-        });
+                <div class="file">
+                    <a href="@Url.Action("Download","Dokumenty",new { id = f.ID })"><span class="material-icons md-36" id="no_color">insert_drive_file</span></a>
+                    <div class="name">
+                        @Html.ActionLink(f.Název, "Download", "Dokumenty", new { id = f.ID }, new { })
+                    </div>
+                </div>
+            }
+        </div>
 
-    }); //document ready
+        <!--Skece Nejstahovanější-->
+        <h2>Nejtahovanější</h2>
+        <div class="container-clanky">
+            @foreach (Files f in ViewBag.down)
+            {
+                <div class="file">
+                    <a href="@Url.Action("Download","Dokumenty",new { id = f.ID })"><span class="material-icons md-36" id="no_color">insert_drive_file</span></a>
+                    <div class="name">
+                        @Html.ActionLink(f.Název, "Download", "Dokumenty", new { id = f.ID }, new { })
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
 
-</script>
+    <!--Zde se vygeneruje pohled AjxaRquest-->
+    <div id="ajax-content">
+
+    </div>
+</div>
+
+    <!-- Button logic, hide /show button depend on selected file-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('input[type = "file"]').hide();
+            $('input[type = "submit"]').hide();
+            $("#cancel").hide();
+
+            $("#insert").click(function () {
+                if ($(this).html() == "Vložit soubor")
+                    $('input[type = "file"]').click();
+                else
+                    $('input[type = "submit"]').click();
+            });
+
+            $("#cancel").click(function () {
+                $("#insert").show();
+                $("#insert").html("Vložit soubor");
+                $("#cancel").hide();
+            });
 
 
-<script type="text/javascript">
+            $('input[type="file"]').change(function (e) {
+
+                var fileName = e.target.files[0].name;
+                if (fileName != "") {
+                    $("#insert").html("Nahrát: " + fileName);
+                    $("#cancel").show();
+                }
+            });
+
+            //po změně ve vyhledavacim poli
+            $('#search').bind('input propertychange', function () {
+
+                if (this.value.length == 0) {
+                    $(".result").show();
+                    document.getElementById("ajax-content").innerHTML = "";
+                    // pokud je vyhl. pole prazdne smaze predchozi vyhledavani a zobrazi sekce
+                }
+                else {
+                    $(".result").hide(); //skryje sekci nejstahov a nejnov
+                    getAjaxContend();    //ziska data podle textu ve vhyl poli
+                }
+            });
+
+
+            $("#smazat").click(function () {
+                var isChecked = $("input[type=checkbox]").is(":checked"); //overeni zda je zaskrtlý nejaky checkbox
+                if (isChecked) {
+                    $('input[value="delete"]').click();
+                }
+                else
+                    alert("Nejprve je nutné označit soubory");
+            });
+
+        }); //document ready
+
+    </script>
+
+
+    <script type="text/javascript">
     //Poslaní dat do controlleru, který nám vygeneruje pohled s hledanymi soubory
     function getAjaxContend() {
 
@@ -140,4 +140,4 @@
 
 
 
-</script>
+    </script>
