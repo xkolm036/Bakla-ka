@@ -7,18 +7,19 @@
         <h1>Aktuality</h1>
     </div>
 }
-@if (Request.IsAuthenticated) { 
-@section adminMenu{
+@if (Request.IsAuthenticated)
+{
+    @section adminMenu{
 
-    <a href="@Url.Action("Index","Home")" class="list-group-item active">Aktuality</a>
-    <a href="@Url.Action("Pridat","Clanky")" class="list-group-item">Přidat článek</a>
-    <a href="@Url.Action("Seznam","Clanky")" class="list-group-item">Seznam článků</a>
+        <a href="@Url.Action("Index","Home")" class="list-group-item active">Aktuality</a>
+        <a href="@Url.Action("Pridat","Clanky")" class="list-group-item">Přidat článek</a>
+        <a href="@Url.Action("Seznam","Clanky")" class="list-group-item">Seznam článků</a>
 
+    }
 }
-}
-
 
 <div class="container-clanky">
+
     @foreach (DataAcces.Models.Clanky cl in Model)
     {
 

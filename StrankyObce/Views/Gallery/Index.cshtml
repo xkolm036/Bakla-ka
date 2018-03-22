@@ -23,7 +23,7 @@
             @using (Html.BeginForm("Upload", "Gallery", new { quality = 45 }, FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
                 <input type="file" name="picture" accept="image/x-png,image/gif,image/jpeg" />
-                <input type="submit" value="Nahrát!" class="list-group-item" />
+                <input type="submit" value="Nahrat" class="list-group-item" />
             }
             <a href="#" id="cancel" class="list-group-item">Zrušit výběr</a>
 
@@ -34,6 +34,7 @@
 
 
 <div id="gallery">
+
 
 
     @using (Html.BeginForm("Delete", "Gallery", FormMethod.Post))
@@ -83,7 +84,7 @@
             if ($(this).html() == "Vložit soubor")
                 $('input[type = "file"]').click();
             else
-                $('input[type = "submit"]').click();
+                $('input[value = "Nahrat"]').click();
         });
 
         $('input[type="file"]').change(function (e) {
@@ -102,8 +103,14 @@
             $("#cancel").hide();
         });
 
+
         $("#smazat").click(function () {
-            $("input[value=delete]").click();
+            var isChecked = $("input[type=checkbox]").is(":checked"); //overeni zda je zaskrtlý nejaky checkbox
+            if (isChecked) {
+                $('input[value="delete"]').click();
+            }
+            else
+                alert("Nejprve je nutné označit soubory");
         });
 
 

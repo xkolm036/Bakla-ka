@@ -7,9 +7,12 @@
 
 
 .container-clanky {
+    position:relative;
     display: inline-flex;
     flex-flow: row;
     flex-wrap: wrap;
+    width:100%;
+
 }
 
     .container-clanky .items {
@@ -45,6 +48,7 @@ html, body {
 .footer,
 .push {
     height: 50px;
+ 
 }
 
 footer {
@@ -58,8 +62,15 @@ footer {
 #upload {
     display: none
 }
+.srch{
+    width:100%;
+
+}
+
 
 #search {
+    position:relative;
+  
     width: 130px;
     box-sizing: border-box;
     border: 2px solid #ccc;
@@ -73,6 +84,7 @@ footer {
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
     margin-top: 2px;
+    max-height:50px;
 }
 
 
@@ -121,3 +133,6 @@ footer {
     color: red;
     text-decoration: none;
 }
+
+
+
