@@ -121,3 +121,29 @@ footer {
     color: red;
     text-decoration: none;
 }
+
+img{
+    width:400px;
+    height:250px;
+    margin-top:5px;
+}
+
+.result{
+    left:0;
+
+}
+
+.imgT{
+    position:relative;
+    display:inline-flex;
+}
+
+#ImgCheck {
+    transform: scale(1.5);
+    padding: 10px;
+    position: absolute;
+    margin: 0;
+    top: 8px;
+    right: 3px;
+    z-index: 0;
+}

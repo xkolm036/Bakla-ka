@@ -1,0 +1,88 @@
+﻿@using DataAcces.Models
+
+@model List<Images>
+
+@section main{
+    <h1>Fotogalerie</h1>
+}
+@if (Request.IsAuthenticated)
+{
+    @section adminMenu{
+        <a href="#" class="list-group-item active">Fotografie</a>
+        <a href="#" id="smazat" class="list-group-item">Odstranit vybrané</a>
+        <a href="#" id="insert" class="list-group-item">Vložit soubor</a>
+
+
+        @using (Html.BeginForm("Upload", "Gallery", new { quality = 45 }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="file" name="picture" accept="image/x-png,image/gif,image/jpeg" />
+            <input type="submit" value="Nahrát!" class="list-group-item" />
+        }
+        <a href="#" id="cancel" class="list-group-item">Zrušit výběr</a>
+
+    }}
+
+
+
+
+@using (Html.BeginForm("Delete", "Gallery", FormMethod.Post))
+{
+
+    for (int i = 0; i < Model.Count(); i++)
+    {
+        <div class="imgT">
+            <!-- <a href="@Url.Action("Download", "Dokumenty", new { id = Model[i].ID })" />-->
+            <img src='@Url.Content("~/Public_Images/" + Model[i].Nazev)' onclick="openModal();currentSlide(i+1)" class="hover-shadow" />
+
+            @if (Request.IsAuthenticated)
+            {
+                @Html.CheckBoxFor(f => Model[i].selected, new { id = "ImgCheck" })
+                @Html.HiddenFor(f => Model[i].ID)
+            }
+        </div>
+
+    }
+
+    <input type="submit" value="delete">
+}
+
+
+
+
+
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+        $("input[type=file]").hide();
+        $("input[type=submit]").hide();
+        $("#cancel").hide();
+
+        $("#insert").click(function () {
+            $("input[type=file]").click();
+
+        });
+
+        $('input[type="file"]').change(function (e) {
+
+            var fileName = e.target.files[0].name;
+            if (fileName != "") {
+                $("#insert").html("Nahrát: " + fileName);
+                $("#cancel").show();
+            }
+        });
+
+
+        $("#cancel").click(function () {
+            $("#insert").show();
+            $("#insert").html("Vložit soubor");
+            $("#cancel").hide();
+        });
+
+        $("#smazat").click(function () {
+            $("input[value=delete]").click();
+        });
+
+
+    });
+</script>

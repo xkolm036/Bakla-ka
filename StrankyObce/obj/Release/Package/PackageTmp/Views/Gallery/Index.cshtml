@@ -1,0 +1,34 @@
+﻿@using DataAcces.Models
+
+@model List<Images>
+
+@section main{
+    <h1>Fotogalerie</h1>
+}
+@if (Request.IsAuthenticated)
+{
+    @section adminMenu{
+        <a href="#" class="list-group-item active">Fotografie</a>
+        <a href="#" id="smazat" class="list-group-item">Odstranit vybrané</a>
+        <a href="#" id="insert" class="list-group-item">Vložit soubor</a>
+
+
+@using (Html.BeginForm("Upload", "Gallery",new {quality=40 } , FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="file" />
+            <input type="submit" value="Nahrát!" class="list-group-item" />
+}
+
+
+    }}
+
+
+<div class="result">
+    @foreach (Images I in Model)
+    {
+        <img src="@Url.Content(I.Umisteni)" width="500" height="500">
+        @I.Umisteni
+    }
+
+</div>
+
