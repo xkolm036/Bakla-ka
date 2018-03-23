@@ -34,6 +34,18 @@
 
 
 <div id="gallery">
+        <h2>Alba</h2>
+
+        @using (Html.BeginForm("Index", "Gallery"))
+        {
+            foreach (string s in (List<string>)ViewBag.roky)
+            {
+                <button class="btn btn-primary" name="year" value="@s">@s  </button>
+            }
+        }
+
+
+
 
 
 
@@ -43,7 +55,7 @@
             @for (int i = 0; i < Model.Count(); i++)
             {
                 <div class="image">
-                 
+
                     <img id="myImg@(i + 1)" src='@Url.Content("~/Public_Images/" + Model[i].Nazev)' alt="@Model[i].Nazev" onclick=test(@(i + 1)) />
 
                     @if (Request.IsAuthenticated)
@@ -79,6 +91,7 @@
         $("input[type=file]").hide();
         $("input[type=submit]").hide();
         $("#cancel").hide();
+        $("#album").show();
 
         $("#insert").click(function () {
             if ($(this).html() == "Vložit soubor")
@@ -114,13 +127,13 @@
         });
 
 
+
     });
 </script>
 
 <script>
 
-
-
+    //modal okno
     function test(id) {
         $(".list-group-item").hide();
         var modal = document.getElementById('myModal');
@@ -151,3 +164,5 @@
 
 
 </script>
+
+

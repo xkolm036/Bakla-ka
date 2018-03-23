@@ -21,7 +21,6 @@ namespace DataAcces.Models
         public string Umisteni { get; set; }
         public string Rok_nahrani { get; set; }
         public string popisek { get; set; }
-
         public bool selected { get; set; }
 
 

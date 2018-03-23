@@ -15,19 +15,35 @@ namespace StrankyObce.Controllers
         // GET: Gallery
         public ActionResult Index(string year="last")
         {
+            List<string> rokyVDB=new List<string>();
+           
             List<Images> imagescollection = new List<Images>();
             using (hrebec_dataEntities context = new hrebec_dataEntities())
             {
 
                 if (year == "last")
                 {
-                    var data = context.ImagesSet.OrderBy(i => i.Rok_nahrani).Take(1);
+                    var data = context.ImagesSet.OrderByDescending(i => i.Rok_nahrani).Take(1);
                    foreach(Images img in data)
                     {
                         year = img.Rok_nahrani;
 
                     }
                 }
+
+                var allyers = context.ImagesSet.Select(i => i.Rok_nahrani);
+                foreach (string s in allyers)
+                {
+                    if (!rokyVDB.Contains(s))
+                    {
+                        rokyVDB.Add(s);
+
+                    }
+
+                }
+
+                ViewBag.roky = rokyVDB;
+
                 var data1 = context.ImagesSet.Where(i => i.Rok_nahrani == year);
 
                 foreach (Images img in data1)
@@ -51,7 +67,6 @@ namespace StrankyObce.Controllers
                 return RedirectToAction("Index", "Gallery");
             }
 
-            
 
             //  file.SaveAs(path);
             if (picture.ContentLength > 0)
