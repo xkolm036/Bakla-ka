@@ -8,16 +8,17 @@
 
 @if (Request.IsAuthenticated)
 {
-@section adminMenu{
-    <a href="#" class="list-group-item active">Detail článku</a>
-    @Html.ActionLink("Upravit článek", "Upravit", "Clanky", new { id = Model.ID }, new { @class = "list-group-item" })
-}
+    @section adminMenu{
+        <a href="#" class="list-group-item active">Detail článku</a>
+        @Html.ActionLink("Upravit článek", "Upravit", "Clanky", new { id = Model.ID }, new { @class = "list-group-item" })
+        <a href="@Url.Action("Seznam","Clanky")" class="list-group-item">Seznam článků</a>
+    }
 }
 
 @section main
 {
     <h1>@Model.Nazev </h1>
 }
-<h2>Přidáno: @Model.Datum_Vytvoreni</h2> <br>
+<h2>Přidáno: @Model.Datum_Vytvoreni.ToString("dd.MM.yyyy")</h2> <br>
 
- @Html.Raw(Model.Text)
+@Html.Raw(Model.Text)

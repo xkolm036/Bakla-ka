@@ -24,10 +24,9 @@ namespace StrankyObce.Controllers
         {
             //ViewBag.EmailTemp = Request.Form["Clanek"];
 
-            DateTime thisDay = DateTime.Today;
-         
+            DateTime thisDay = DateTime.Today ;
+            cl.Datum_Vytvoreni = thisDay;
 
-            cl.Datum_Vytvoreni = DateTime.Parse(thisDay.ToString("dd.MM.yyyy"));
 
 
             if (ModelState.IsValid)

@@ -54,7 +54,7 @@
             <tr>
                 <td>@cl.ID</td>
                 <td>@Html.ActionLink(cl.Nazev, "Detail", "Clanky", new { id = cl.ID }, new { })</td>
-                <td>@cl.Datum_Vytvoreni</td>
+                <td>@cl.Datum_Vytvoreni.ToString("dd.MM.yyyy")</td>
                 <!-- Ikonka pera -->
                 <td><a href="@Url.Action("Upravit","Clanky",new {id=cl.ID })" id="no_color"><span class="material-icons" aria-hidden="true">mode_edit</span></a></td>
              
