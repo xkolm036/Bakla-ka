@@ -39,7 +39,7 @@ html, body {
 
 
 .contend {
-    min-height: 89%;
+    min-height: 84%;
     /* Equal to height of footer */
     /* But also accounting for potential margin-bottom of last child */
     margin-bottom: -50px;
