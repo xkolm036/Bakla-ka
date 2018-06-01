@@ -71,7 +71,7 @@ namespace StrankyObce.Controllers
         {
             cl.ID = id;
             DBControl.Update(cl);
-            TempData["msg-succes"] = "Článek byl úspěšně upraven";
+            TempData["msg-succes"] = "Článek byl úspěšně upraven v editu";
             return RedirectToAction("Seznam", "Clanky");
         }
 

@@ -131,7 +131,8 @@ namespace DataAcces.Models
             {
                 Clanky clZdb = new Clanky();
                 clZdb = context.Clanky.FirstOrDefault(c => c.ID == cl.ID);
-                clZdb = cl;
+                clZdb.Nazev = cl.Nazev;
+                clZdb.Text = cl.Text;
                 context.SaveChanges();
             }
         }
