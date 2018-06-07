@@ -11,8 +11,8 @@ namespace StrankyObce.Controllers
     public class ClankyController : Controller
     {
         // GET: Clanky
-    
-        [Authorize]
+
+        [ValidateInput(false)]
         public ActionResult Pridat()
         {
             return View();
